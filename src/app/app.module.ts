@@ -6,12 +6,23 @@ import { AppComponent } from './app.component';
 
 import { AuthModule } from '@auth0/auth0-angular';
 import { LoginButtonComponent } from './components/login-button/login-button.component';
+import { MyProductsComponent } from './components/my-products/my-products.component';
 
+import { Routes, RouterModule } from '@angular/router';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: MyProductsComponent,
+  
+},
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginButtonComponent
+    LoginButtonComponent,
+    MyProductsComponent
   ],
   imports: [
     BrowserModule,

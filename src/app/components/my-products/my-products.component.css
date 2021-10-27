@@ -1,0 +1,209 @@
+html, body{
+    background-color: #F4F9F4 !important;
+    font-family:'Poppins', sans-serif !important; 
+}
+/*
+-------------------------------
+|                             |
+|        Header section       |
+|                             |
+-------------------------------
+*/
+#navigation-bar #menu {
+	height: 80px;
+	background-color: #FFFFFF;
+	position: relative;
+}
+#menu .logo{
+	background-image: url("../../../assets/Imgs/logo.png");
+	background-size: 100%;                      
+    background-repeat: no-repeat;
+    background-position: center; 
+    width: 70px;
+	height: 100%;
+	margin-left: 50px;
+}
+#menu .hm{
+	background-image: url("../../../assets/Imgs/hm.png");
+	background-size: 100%;                      
+    background-repeat: no-repeat;
+    background-position: center; 
+    width: 35px;
+	height: 100%;
+	cursor: pointer;
+	-webkit-transition: background-color 0.1s, color 0.1s;
+	position: absolute;
+	top: 0;
+	right: 50px;
+	display: none;
+}
+
+#menu .options .list{
+	position: absolute;
+	font-size: 18px;
+	top: 50%;
+	transform: translateY(-65%);
+	right: 40px;
+}
+ #menu .options .list li {
+	display: inline-block;
+	margin-right: 20px;
+	cursor: pointer;
+	height: 44px;
+	line-height: 44px;
+}
+.options .separate{
+	width: 1px;
+	height: 70px;
+	background-color: grey;
+	position: absolute;
+	top: 10%;
+}
+.options .button-type{
+	text-align: center;
+	width: 120px;
+}
+.options #register{
+	width: 200px;
+	background-color: #32635F;
+	border-radius: 5px;
+	color: white !important; 
+}
+
+.options #register:hover{
+	background-color: grey;
+}
+.options a:hover { 
+ 	color: grey !important;
+}
+
+#check {
+  display: none;
+}
+.options-res {
+  	-webkit-transition: height .3s ease;
+  	height: 0;
+  	overflow: hidden;
+  	width: 100%;
+  	background-color: #32635F;
+  	text-align: center;
+  	display: none;
+}
+
+.options-res ul{
+	list-style-type: none;
+	display: inline-block;
+}
+.options-res li{
+	width: 200px;
+	height: 40px;
+	line-height: 40px;
+	margin-top: 15px;
+	margin-left: -50px;
+}
+.options-res li:hover{
+	background-color: grey;
+}
+
+input:checked + .options-res {
+  height: 250px;
+}
+
+@media (max-width:815px) {
+	#navigation-bar #menu .options{
+		display: none;
+	}
+	#menu .hm{
+		display: block;
+	}
+	.options-res {
+	  	display: block;
+	}
+}
+
+
+.container {
+    background-color: #fff;
+    position: relative;
+    display: grid;
+    grid-template-columns: 300px 600px;
+    border-radius: 5px;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.356);
+    margin-top: 55px;
+}
+.container img {
+    width: 300px;
+    height: 300px;
+    border-radius: 5px 0 0 5px;
+}
+.container .btn {
+    
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+
+    color: #fff;
+    padding: 22px 45px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.294);
+}
+
+.add-btn{
+    margin-top: 30px;
+    margin-bottom: 150px;
+}
+
+.add-btn h2{
+    font-weight: 800;
+    margin-left: 30px;
+}
+.btn-add{
+    position: absolute;
+    right: 100px;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+
+background-color: #1D1F22;
+    color: #fff;
+    padding: 22px 45px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+
+.btn-edit{
+    background-color: #32635F;
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+}
+.btn-delete{
+    position: absolute;
+    background-color: #A40707;
+    bottom: 320px;
+    right: -20px; 
+}
+.container .btn svg {
+    margin-left: 20px;
+    font-size: 1.5rem;
+}
+.container__text {
+    padding: 40px 40px 0;
+    
+}
+
+.container__text p{
+    display: inline-block;
+}
+.container__text h1 {
+    color: #32635F;
+    font-weight: 600;
+}
