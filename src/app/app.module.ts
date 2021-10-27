@@ -9,6 +9,8 @@ import { LoginButtonComponent } from './components/login-button/login-button.com
 import { MyProductsComponent } from './components/my-products/my-products.component';
 
 import { Routes, RouterModule } from '@angular/router';
+import { MyProductsAddComponent } from './components/my-products-add/my-products-add.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 const routes: Routes = [
   {
@@ -22,7 +24,9 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     LoginButtonComponent,
-    MyProductsComponent
+    MyProductsComponent,
+    MyProductsAddComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,118 @@
+/*
+-------------------------------
+|                             |
+|        Header section       |
+|                             |
+-------------------------------
+*/
+#navigation-bar #menu {
+	height: 80px;
+	background-color: #FFFFFF;
+	position: relative;
+}
+#menu .logo{
+	background-image: url("../../../assets/Imgs/logo.png");
+	background-size: 100%;                      
+    background-repeat: no-repeat;
+    background-position: center; 
+    width: 70px;
+	height: 100%;
+	margin-left: 50px;
+}
+#menu .hm{
+	background-image: url("../../../assets/Imgs/hm.png");
+	background-size: 100%;                      
+    background-repeat: no-repeat;
+    background-position: center; 
+    width: 35px;
+	height: 100%;
+	cursor: pointer;
+	-webkit-transition: background-color 0.1s, color 0.1s;
+	position: absolute;
+	top: 0;
+	right: 50px;
+	display: none;
+}
+
+#menu .options .list{
+	position: absolute;
+	font-size: 18px;
+	top: 50%;
+	transform: translateY(-65%);
+	right: 40px;
+}
+ #menu .options .list li {
+	display: inline-block;
+	margin-right: 20px;
+	cursor: pointer;
+	height: 44px;
+	line-height: 44px;
+}
+.options .separate{
+	width: 1px;
+	height: 70px;
+	background-color: grey;
+	position: absolute;
+	top: 10%;
+}
+.options .button-type{
+	text-align: center;
+	width: 120px;
+}
+.options #register{
+	width: 200px;
+	background-color: #32635F;
+	border-radius: 5px;
+	color: white !important; 
+}
+
+.options #register:hover{
+	background-color: grey;
+}
+.options a:hover { 
+ 	color: grey !important;
+}
+
+#check {
+  display: none;
+}
+.options-res {
+  	-webkit-transition: height .3s ease;
+  	height: 0;
+  	overflow: hidden;
+  	width: 100%;
+  	background-color: #32635F;
+  	text-align: center;
+  	display: none;
+}
+
+.options-res ul{
+	list-style-type: none;
+	display: inline-block;
+}
+.options-res li{
+	width: 200px;
+	height: 40px;
+	line-height: 40px;
+	margin-top: 15px;
+	margin-left: -50px;
+}
+.options-res li:hover{
+	background-color: grey;
+}
+
+input:checked + .options-res {
+  height: 250px;
+}
+
+@media (max-width:815px) {
+	#navigation-bar #menu .options{
+		display: none;
+	}
+	#menu .hm{
+		display: block;
+	}
+	.options-res {
+	  	display: block;
+	}
+}
