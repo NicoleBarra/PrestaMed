@@ -11,6 +11,7 @@ import { MyProductsComponent } from './components/my-products/my-products.compon
 import { Routes, RouterModule } from '@angular/router';
 import { MyProductsAddComponent } from './components/my-products-add/my-products-add.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { MyProductsEditComponent } from './components/my-products-edit/my-products-edit.component';
 
 const routes: Routes = [
   {
@@ -26,7 +27,8 @@ const routes: Routes = [
     LoginButtonComponent,
     MyProductsComponent,
     MyProductsAddComponent,
-    NavbarComponent
+    NavbarComponent,
+    MyProductsEditComponent
   ],
   imports: [
     BrowserModule,
