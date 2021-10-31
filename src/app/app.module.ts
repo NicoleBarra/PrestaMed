@@ -7,14 +7,20 @@ import { AppComponent } from './app.component';
 import { AuthModule } from '@auth0/auth0-angular';
 import { LoginButtonComponent } from './components/login-button/login-button.component';
 import { MyProductsComponent } from './components/my-products/my-products.component';
-
+import { MyProductsAddComponent } from './components/my-products-add/my-products-add.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { MyProductsEditComponent } from './components/my-products-edit/my-products-edit.component'
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginButtonComponent,
-    MyProductsComponent
+    MyProductsComponent,
+    MyProductsComponent,
+    MyProductsAddComponent,
+    NavbarComponent,
+    MyProductsEditComponent
   ],
   imports: [
     BrowserModule,
