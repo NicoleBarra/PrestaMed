@@ -48,11 +48,11 @@ export class MyProductsAddComponent implements OnInit {
 
   rentOrSellOption(rentOption: boolean, sellOption: boolean){
     if(rentOption && !sellOption){
-      return "rent"
+      return "Renta"
     } else if(!rentOption && sellOption){
-      return "sell"
+      return "Venta"
     } else {
-      return "both"
+      return "Ambos"
     }
   }
 }
