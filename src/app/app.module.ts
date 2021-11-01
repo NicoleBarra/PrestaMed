@@ -12,7 +12,8 @@ import { LoginButtonComponent } from './components/login-button/login-button.com
 import { MyProductsComponent } from './components/my-products/my-products.component';
 import { MyProductsAddComponent } from './components/my-products-add/my-products-add.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { MyProductsEditComponent } from './components/my-products-edit/my-products-edit.component'
+import { MyProductsEditComponent } from './components/my-products-edit/my-products-edit.component';
+import { HistorialBlockchainComponent } from './components/historial-blockchain/historial-blockchain.component'
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { MyProductsEditComponent } from './components/my-products-edit/my-produc
     MyProductsComponent,
     MyProductsAddComponent,
     NavbarComponent,
-    MyProductsEditComponent
+    MyProductsEditComponent,
+    HistorialBlockchainComponent
   ],
   imports: [
     BrowserModule,

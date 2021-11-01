@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MyProductsComponent } from './components/my-products/my-products.component';
 import { MyProductsAddComponent } from './components/my-products-add/my-products-add.component';
 import { MyProductsEditComponent } from './components/my-products-edit/my-products-edit.component';
+import { HistorialBlockchainComponent } from './components/historial-blockchain/historial-blockchain.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,11 @@ const routes: Routes = [
 {
   path: 'mis-productos-editar',
   component: MyProductsEditComponent,
+
+},
+{
+  path: 'historial-producto',
+  component: HistorialBlockchainComponent,
 
 },
 ];
