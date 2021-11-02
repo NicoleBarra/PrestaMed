@@ -16,6 +16,8 @@ import { MyProductsEditComponent } from './components/my-products-edit/my-produc
 import { HistorialBlockchainComponent } from './components/historial-blockchain/historial-blockchain.component';
 import { LoginComponent } from './login/login.component'
 
+import { AuthService } from './auth.service';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +42,7 @@ import { LoginComponent } from './login/login.component'
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

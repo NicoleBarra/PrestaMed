@@ -10,9 +10,13 @@
                     <li>Categorías</li>
                 </a>
                 <li><div class="separate"></div></li>
-                <a href="" style="text-decoration: none; color: black;">
-                    <li class="button-type">Ingresar</li>
+                <a href="login" style="text-decoration: none; color: black;">
+                    <li class="button-type" ng-click="auth.login()"><a>Ingresar</a></li>
                 </a>
+                <button
+  (click)="this.authService.login()">
+  Sign Up or Login
+</button>
                 <a href="" style="text-decoration: none;">
                     <li id="register" class="button-type">Crear cuenta</li>
                 </a>
