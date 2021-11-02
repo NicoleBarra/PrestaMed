@@ -13,7 +13,8 @@ import { MyProductsComponent } from './components/my-products/my-products.compon
 import { MyProductsAddComponent } from './components/my-products-add/my-products-add.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MyProductsEditComponent } from './components/my-products-edit/my-products-edit.component';
-import { HistorialBlockchainComponent } from './components/historial-blockchain/historial-blockchain.component'
+import { HistorialBlockchainComponent } from './components/historial-blockchain/historial-blockchain.component';
+import { CategoriasComponent } from './components/categorias/categorias.component'
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { HistorialBlockchainComponent } from './components/historial-blockchain/
     MyProductsAddComponent,
     NavbarComponent,
     MyProductsEditComponent,
-    HistorialBlockchainComponent
+    HistorialBlockchainComponent,
+    CategoriasComponent
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import { MyProductsComponent } from './components/my-products/my-products.compon
 import { MyProductsAddComponent } from './components/my-products-add/my-products-add.component';
 import { MyProductsEditComponent } from './components/my-products-edit/my-products-edit.component';
 import { HistorialBlockchainComponent } from './components/historial-blockchain/historial-blockchain.component';
+import {CategoriasComponent} from './components/categorias/categorias.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,11 @@ const routes: Routes = [
 {
   path: 'historial-producto',
   component: HistorialBlockchainComponent,
+
+},
+{
+  path: 'categorias',
+  component: CategoriasComponent,
 
 },
 ];

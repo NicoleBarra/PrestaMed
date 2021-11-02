@@ -1,0 +1,272 @@
+body{
+    background-color: #E5E5E5 !important;
+}
+
+/*
+-------------------------------
+|                             |
+|     Categories Section      |
+|                             |
+-------------------------------
+*/
+div.gallery {
+	position: relative;
+	background-repeat: no-repeat;
+	display: inline-block;
+	width: 30%;	
+	height: 200px;
+	background-size: 100%;
+	cursor: pointer;
+	left: 1.7%;
+	margin-left: 20px;
+	margin-bottom: 40px;      
+	background-color: #A7D7C5;        
+    
+}
+div.gallery:hover {
+	border: 1px solid #777;
+}
+
+div.desc {
+	position: absolute;
+	font-family: 'Roboto', sans-serif;
+	font-size: 15px;
+	padding: 15px;
+	text-align: center;
+	color: #32635F;
+	background-color: #A7D7C5;
+	width: 100%;
+	bottom: 0px;
+}
+#cat{
+	position: relative;
+}
+#cat #container{
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 90%;
+	align-content: center;
+}
+
+#cat-1{
+	background-image: url("../../../assets/Imgs/categoria1.jpeg");
+}
+#cat-2{
+	background-image: url("../../../assets/Imgs/categoria2.jpeg");
+}
+#cat-3{
+	background-image: url("../../../assets/Imgs/categoria3.jpeg");
+}
+#cat-4{
+	background-image: url("../../../assets/Imgs/categoria4.jpeg");
+}
+#cat-5{
+	background-image: url("../../../assets/Imgs/categoria5.jpeg");
+}
+#cat-6{
+	background-image: url("../../../assets/Imgs/categoria6.jpeg");
+}
+
+/*
+-------------------------------
+|                             |
+|        Filter section       |
+|                             |
+-------------------------------
+*/
+#filter{
+	margin-bottom: 20px;
+	font-family: 'Roboto', sans-serif;
+}
+#filter form{
+	margin-bottom: 20px;
+	width: 85%;
+	height: 40px;
+  	position: relative;
+  	left: 50%;
+  	transform: translateX(-50%);
+}
+#filter .search{
+	border-bottom: solid;
+  	border-width: 0.8px;
+}
+#filter .filter-options{
+	margin-top: 10px;
+	border-top: solid;
+	border-bottom: solid;
+  	border-width: 0.8px;
+  	border-color: #32635F;
+  	height: 50px;
+}
+#filter .filter-options select{
+	margin-top: 15px;
+	margin-right: 20px;
+	border: none;
+	background-color: lightgrey;
+}
+
+#filter form input{
+	position: relative;
+	all: unset;
+  	font: 16px system-ui;
+  	width: 90%;
+  	height: 40px;
+}
+#filter form button{
+	top: 50%;
+	transform: translateY(-50%);
+	right: 0;
+	position: absolute;
+	width: 40px;
+  	height: 36px;
+  	border: none;
+  	border-radius: 5px;
+  	cursor: pointer;
+  	background-color: transparent;
+}
+
+/*
+-------------------------------
+|                             |
+|      Products section       |
+|                             |
+-------------------------------
+*/
+#products{
+	font-family: 'Roboto', sans-serif;
+	position: relative;
+	margin-bottom: 50px;
+}
+#products #product-container{
+	width: 85%;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	overflow: hidden;
+}
+#product-container .product-card{
+	float: left;
+	position: relative;
+	width: 22%;
+	background-size: 100%;
+	margin-bottom: 20px;      
+	background-color: #FFFFFF;
+	margin-left: 5px;
+	left: 4.5%;
+	padding-bottom: 100%;
+    margin-bottom: -100%;
+    border-top: solid 20px;
+    border-color: #E5E5E5;
+}
+
+#product-container .product-card .description{
+	color: black;
+	position: relative;
+	width: 100%;
+}
+.product-card .description img{
+	width: 100%; 
+}
+
+/*
+-------------------------------
+|                             |
+|          Responsive         |
+|                             |
+-------------------------------
+*/
+@media (max-width:1060px) {
+	div.gallery {
+		left: 0.5%;             
+	    
+	}
+	#cat-1{
+		margin-left: 1px;
+	}
+	#cat-4{
+		margin-left: 1px;
+	}
+	#cat-5{
+		margin-bottom: 40px;
+	}
+	#cat-6{
+		margin-bottom: 40px;
+	}
+	#product-container .product-card{
+		left: 3.4%;
+	}
+	.description h1{
+		font-size: 1.8vw !important;
+	}
+	.description h2{
+		font-size: 1.3vw !important;
+	}
+	#filter .filter-options{
+	  	font-size: 1.8vw;
+	}
+}
+@media (max-width:815px) {
+	div.gallery {
+		width: 45%;            
+	    margin-left: 5px;
+	    margin-bottom: 10px;
+	    left: 3.4%;
+	}
+	#cat #container{
+		width: 100%;
+
+	}
+	#cat-1{
+		margin-left: 5px;
+	}
+	#cat-4{
+		margin-left: 5px;
+	}
+	#cat-5{
+		margin-bottom: 40px;
+	}
+	#cat-6{
+		margin-bottom: 40px;
+	}
+	#filter #filter-menu{
+		width: 100%;
+	}
+	#filter-menu .options h1{
+		display: none;
+	}
+	#filter form{
+		width: 90%;
+	}
+	#products #product-container{
+		width: 100%;
+	}
+	#product-container .product-card{
+		width: 40%;
+		left: 7.5%;
+	}
+	.description h1{
+		font-size: 3vw !important;
+	}
+	.description h2{
+		font-size: 2.5vw !important;
+	}
+	#filter .filter-options{
+	  	font-size: 2.5vw;
+	}
+	#filter .filter-options select{
+	  	margin-right: 5px;
+	}
+}
+@media (min-width:2000px) {
+	div.gallery {
+	    width: 400px;
+	    left: 2.5%;
+	}
+	#cat-1{
+		margin-left: 20px;
+	}
+	#cat-4{
+		margin-left: 20px;
+	}
+}
