@@ -4,16 +4,15 @@
     </div>
     <div id="description" class="content">
         <div class="text">
-            <h1>Tanque de oxígeno 680L</h1>
-            <h2>Renta por día: $78.90</h2>
-            <h2>Venta: $4900.00</h2>
-            <h2 style="margin-bottom: 20px;">Item: 02610054</h2>
-            <p>Calificación: 4.5/5</p>
+            <h1>{{producto.name}}</h1>
+            <h2>Renta por día: $ {{producto.rentPriceDay}}</h2>
+            <h2>Venta: $ {{producto.sellPrice}}</h2>
+            <h2>Categoría: {{convertirCategoria(producto.category)}}</h2>
+            <h2 style="margin-bottom: 20px;">Item: {{producto._id}}</h2>
+            <p>Marca: {{producto.brand}}</p>
             <p>
                 Descripción:<br>
-                Incluye cilindro de aluminio con capacidad de 680 l
-                Regulador de aluminio con flujómetro
-                Vaso humidificador y carrito transportador.
+                {{producto.description}}
             </p>
             <div>
                 <a href=""><button style="background-color: seagreen; margin-right: 10px;">COMPRAR</button></a>
@@ -27,9 +26,9 @@
         <ul class="list">
             <li style="color: black; width: 100px; text-align: center; border-bottom: solid 2px; border-color: black; margin-left: -40px;">Reseñas</li>
             <a href=""><li class="history" style="background-color: #5ECE7B; width: 162px; text-align: center;">VER HISTORIAL</li></a>
-            
+
         </ul>
-        
+
     </div>
     <div id="comments-holder">
         <h1 class="title">Reseñas</h1>
@@ -52,7 +51,7 @@
                 <p>Renté este tanque de oxígeno y me funcionó muy bien. El vendedor muy amable y atento. </p>
                 <p id="in">20</p>
             </div>
-            
+
         </div>
     </div>
 </section>

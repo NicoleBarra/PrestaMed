@@ -1,38 +1,38 @@
 <section id="cat">
 		<div id="container">
-			<a target="_blank" href="agentes.html" style="text-decoration: none;">
+			<a [routerLink]="['/filtrado']" routerLinkActive="router-link-active" (click)="setCategoria('1')" style="text-decoration: none;">
 				<div id="cat-1" class="gallery">
 					<div class="desc">Agentes de diagnóstico</div>
 				</div>
 			</a>
-			<a target="_blank" href="insumos.html" style="text-decoration: none;">
+			<a [routerLink]="['/filtrado']" routerLinkActive="router-link-active" (click)="setCategoria('2')" style="text-decoration: none;">
 				<div id="cat-2" class="gallery">
 					<div class="desc">Insumos Odontológicos</div>
 				</div>
 			</a>
-			<a target="_blank" href="material.html" style="text-decoration: none;">
+			<a [routerLink]="['/filtrado']" routerLinkActive="router-link-active" (click)="setCategoria('3')" style="text-decoration: none;">
 				<div id="cat-3" class="gallery">
 					<div class="desc">Material Quirúrgico</div>
 				</div>
 			</a>
-			<a target="_blank" href="higienicos.html" style="text-decoration: none;">
+			<a [routerLink]="['/filtrado']" routerLinkActive="router-link-active" (click)="setCategoria('4')" style="text-decoration: none;">
 				<div id="cat-4" class="gallery">
 					<div class="desc">Productos Higiénicos</div>
 				</div>
 			</a>
-			<a target="_blank" href="equipos.html" style="text-decoration: none;">
+			<a [routerLink]="['/filtrado']" routerLinkActive="router-link-active" (click)="setCategoria('5')" style="text-decoration: none;">
 				<div id="cat-5" class="gallery">
 					<div class="desc">Equipos médicos</div>
 				</div>
 			</a>
-			<a target="_blank" href="protesis.html" style="text-decoration: none;">
+			<a [routerLink]="['/filtrado']" routerLinkActive="router-link-active" (click)="setCategoria('6')" style="text-decoration: none;">
 				<div id="cat-6" class="gallery">
 						<div class="desc">Prótesis, Órtesis, Ayudas Funcionales</div>
 				</div>
 			</a>
 		</div>
 </section>
-	
+
 <section id="filter">
 		<form class="search">
 	    	<input class="search-bar" type="search" placeholder="Buscar Productos" aria-label="Search">
@@ -58,100 +58,16 @@
 </section>
 
 <section id="products">
-		<div id="product-container">
-			<a target=	"_blank" href="product.html" style="text-decoration: none;">
+		<div id="product-container" *ngFor="let producto of productos">
+			<a [routerLink]="['/producto']" routerLinkActive="router-link-active" (click)="setIdProducto(producto._id)" style="text-decoration: none;">
 				<div class="product-card">
 					<div class="product-image"><img src="../../../assets/Imgs/tanque1.png"></div>
 					<div class="description">
-						<h1 style="font-size: 20px; margin-left: 10px; margin-top: 10px; font-weight: lighter;">Tanque de oxígeno 680L</h1>
-						<h2 style="font-size: 18px; margin-left: 10px; font-weight: lighter;">Venta Renta</h2>
-						<h2 style="font-size: 18px; margin-left: 10px;">Renta por día: $78.90</h2>
-						<h2 style="font-size: 18px; margin-left: 10px;">Venta: $4900.00</h2>
-						<h1 style="font-size: 20px; margin-left: 10px; margin-bottom: 20px;font-weight: lighter;">Calificación: 4.5/5</h1>
-					</div>
-				</div>
-			</a>
-			<a target=	"_blank" href="product.html" style="text-decoration: none;">
-				<div class="product-card">
-					<div class="product-image"><img src="../../../assets/Imgs/tanque2.jpeg"></div>
-					<div class="description">
-						<h1 style="font-size: 20px; margin-left: 10px; margin-top: 10px; font-weight: lighter;">Tanque de oxígeno 680L</h1>
-						<h2 style="font-size: 18px; margin-left: 10px; font-weight: lighter;">Renta</h2>
-						<h2 style="font-size: 18px; margin-left: 10px;">Renta por día: $78.90</h2>
-						<h2 style="font-size: 18px; margin-left: 10px;">Venta: No disponible</h2>
-						<h1 style="font-size: 20px; margin-left: 10px; margin-bottom: 20px;font-weight: lighter;">Calificación: 4.5/5</h1>
-					</div>
-				</div>
-			</a>
-			<a target=	"_blank" href="producto.html" style="text-decoration: none;">
-				<div class="product-card">
-					<div class="product-image"><img src="../../../assets/Imgs/tanque3.jpeg"></div>
-					<div class="description">
-						<h1 style="font-size: 20px; margin-left: 10px; margin-top: 10px; font-weight: lighter;">Tanque de oxígeno 680L</h1>
-						<h2 style="font-size: 18px; margin-left: 10px; font-weight: lighter;">Venta Renta</h2>
-						<h2 style="font-size: 18px; margin-left: 10px;">Renta por día: $78.90</h2>
-						<h2 style="font-size: 18px; margin-left: 10px;">Venta: No disponible</h2>
-						<h1 style="font-size: 20px; margin-left: 10px; margin-bottom: 20px;font-weight: lighter;">Calificación: 4.5/5</h1>
-					</div>
-				</div>
-			</a>
-			<a target=	"_blank" href="producto.html" style="text-decoration: none;">
-				<div class="product-card">
-					<div class="product-image"><img src="../../../assets/Imgs/concentradordeoxigeno.jpeg"></div>
-					<div class="description">
-						<h1 style="font-size: 20px; margin-left: 10px; margin-top: 10px; font-weight: lighter; width: 90%;">Concentrador de oxígeno de 5L</h1>
-						<h2 style="font-size: 18px; margin-left: 10px; font-weight: lighter;">Venta Renta</h2>
-						<h2 style="font-size: 18px; margin-left: 10px;">Renta por día: $78.90</h2>
-						<h2 style="font-size: 18px; margin-left: 10px;">Venta: No disponible</h2>
-						<h1 style="font-size: 20px; margin-left: 10px; margin-bottom: 20px;font-weight: lighter;">Calificación: 4.5/5</h1>
-					</div>
-				</div>
-			</a>
-			<a target=	"_blank" href="producto.html" style="text-decoration: none;">
-				<div class="product-card">
-					<div class="product-image"><img src="../../../assets/Imgs/concentrador3.jpeg"></div>
-					<div class="description">
-						<h1 style="font-size: 20px; margin-left: 10px; margin-top: 10px; font-weight: lighter;">Concentrador de oxígeno de 5L</h1>
-						<h2 style="font-size: 18px; margin-left: 10px; font-weight: lighter;">Venta Renta</h2>
-						<h2 style="font-size: 18px; margin-left: 10px;">Renta por día: $78.90</h2>
-						<h2 style="font-size: 18px; margin-left: 10px;">Venta: No disponible</h2>
-						<h1 style="font-size: 20px; margin-left: 10px; margin-bottom: 20px;font-weight: lighter;">Calificación: 4.5/5</h1>
-					</div>
-				</div>
-			</a>
-			<a target=	"_blank" href="producto.html" style="text-decoration: none;">
-				<div class="product-card">
-					<div class="product-image"><img src="../../../assets/Imgs/concentrador3.jpeg"></div>
-					<div class="description">
-						<h1 style="font-size: 20px; margin-left: 10px; margin-top: 10px; font-weight: lighter;">Concentrador de oxígeno de 8L</h1>
-						<h2 style="font-size: 18px; margin-left: 10px; font-weight: lighter;">Venta Renta</h2>
-						<h2 style="font-size: 18px; margin-left: 10px;">Renta por día: $78.90</h2>
-						<h2 style="font-size: 18px; margin-left: 10px;">Venta: No disponible</h2>
-						<h1 style="font-size: 20px; margin-left: 10px; margin-bottom: 20px;font-weight: lighter;">Calificación: 4.5/5</h1>
-					</div>
-				</div>
-			</a>
-			<a target=	"_blank" href="producto.html" style="text-decoration: none;">
-				<div class="product-card">
-					<div class="product-image"><img src="../../../assets/Imgs/oximetro1.jpeg"></div>
-					<div class="description">
-						<h1 style="font-size: 20px; margin-left: 10px; margin-top: 10px; font-weight: lighter;">Oxímetro</h1>
-						<h2 style="font-size: 18px; margin-left: 10px; font-weight: lighter;">Venta Renta</h2>
-						<h2 style="font-size: 18px; margin-left: 10px;">Renta por día: $78.90</h2>
-						<h2 style="font-size: 18px; margin-left: 10px;">Venta: $4900.00</h2>
-						<h1 style="font-size: 20px; margin-left: 10px; margin-bottom: 20px;font-weight: lighter;">Calificación: 4.5/5</h1>
-					</div>
-				</div>
-			</a>
-			<a target= "_blank" href="producto.html" style="text-decoration: none;">
-				<div class="product-card">
-					<div class="product-image"><img src="../../../assets/Imgs/tanque1.png"></div>
-					<div class="description">
-						<h1 style="font-size: 20px; margin-left: 10px; margin-top: 10px; font-weight: lighter;">Tanque de oxígeno 680L</h1>
-						<h2 style="font-size: 18px; margin-left: 10px; font-weight: lighter;">Venta Renta</h2>
-						<h2 style="font-size: 18px; margin-left: 10px;">Renta por día: $78.90</h2>
-						<h2 style="font-size: 18px; margin-left: 10px;">Venta: $4900.00</h2>
-						<h1 style="font-size: 20px; margin-left: 10px; margin-bottom: 20px;font-weight: lighter;">Calificación: 4.5/5</h1>
+						<h1 style="font-size: 20px; margin-left: 10px; margin-top: 10px; font-weight: lighter;">{{producto.name}}</h1>
+            <h1 style="font-size: 20px; margin-left: 10px; margin-bottom: 20px;font-weight: lighter;">Marca: {{producto.brand}}</h1>
+						<h2 style="font-size: 18px; margin-left: 10px; font-weight: lighter;">{{producto.rentSell}}</h2>
+						<h2 style="font-size: 18px; margin-left: 10px;">Renta por día: $ {{producto.rentPriceDay}}</h2>
+						<h2 style="font-size: 18px; margin-left: 10px;">Venta: $ {{producto.sellPrice}}</h2>
 					</div>
 				</div>
 			</a>

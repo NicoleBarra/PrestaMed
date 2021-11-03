@@ -52,7 +52,7 @@ export class MyProductsAddComponent implements OnInit {
     } else if(!rentOption && sellOption){
       return "Venta"
     } else {
-      return "Ambos"
+      return "Renta Venta"
     }
   }
 }
