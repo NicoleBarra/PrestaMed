@@ -5,6 +5,9 @@
 |                             |
 -------------------------------
 */
+#navigation-bar{
+	margin-bottom: 50px;
+}
 #navigation-bar #menu {
 	height: 80px;
 	background-color: #FFFFFF;
@@ -13,18 +16,18 @@
 #menu .logo{
 	background-image: url("../../../assets/Imgs/logo.png");
 	background-size: 100%;                      
-    background-repeat: no-repeat;
-    background-position: center; 
-    width: 70px;
+  	background-repeat: no-repeat;
+  	background-position: center; 
+  	width: 70px;
 	height: 100%;
 	margin-left: 50px;
 }
 #menu .hm{
 	background-image: url("../../../assets/Imgs/hm.png");
-	background-size: 100%;                      
-    background-repeat: no-repeat;
-    background-position: center; 
-    width: 35px;
+	background-size: 100%;
+	background-repeat: no-repeat;
+  	background-position: center; 
+	width: 35px;
 	height: 100%;
 	cursor: pointer;
 	-webkit-transition: background-color 0.1s, color 0.1s;
@@ -84,6 +87,8 @@
   	background-color: #32635F;
   	text-align: center;
   	display: none;
+  	position: relative;
+  	z-index: 2;
 }
 
 .options-res ul{
