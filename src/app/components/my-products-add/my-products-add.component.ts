@@ -29,7 +29,6 @@ export class MyProductsAddComponent implements OnInit {
   });
 
   agregarProducto(){
-    console.log("Agregar producto")
     let producto: ProductoRequest = {
       name: this.modeloProducto.value.name,
       category: this.modeloProducto.value.category,
@@ -41,7 +40,6 @@ export class MyProductsAddComponent implements OnInit {
       rentSell: this.rentOrSellOption(this.modeloProducto.value.rentSelected, this.modeloProducto.value.sellSelected),
       image: this.modeloProducto.value.image
     }
-    console.log(producto)
     this.productoService.insertarProducto(producto)
     this.modeloProducto.reset()
   }

@@ -1,31 +1,22 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ProductoResponse } from 'src/app/models/ProductoResponse';
-import { retry, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
+import { TransaccionRequest } from 'src/app/models/TransaccionRequest';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CatalogoService {
-
-  categoria:any;
+export class BlockchainService {
   id:any;
 
   constructor(private http: HttpClient) { }
 
-  endpointGetProductoCategoria = 'http://localhost:8082/api/catalogo/verProductos';
-  endpointGetProductoId = 'http://localhost:8082/api/catalogo/verProducto';
+  endPointGet = 'http://localhost:8083/api/blockchain/show';
 
-  getProductosCategoria(categoria: string){
+  getBlockchain(id: string){
     return this.http
-      .get<ProductoResponse[]>(this.endpointGetProductoCategoria + '/' + categoria)
-      .pipe(retry(3), catchError(this.handleError));
-  }
-
-  getProductoId(id: string){
-    return this.http
-      .get<ProductoResponse>(this.endpointGetProductoId + '/' + id)
+      .get<TransaccionRequest>(this.endPointGet+ '/' + id)
       .pipe(retry(3), catchError(this.handleError));
   }
 

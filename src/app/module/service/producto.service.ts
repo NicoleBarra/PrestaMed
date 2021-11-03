@@ -14,8 +14,8 @@ export class ProductoService {
   id_editar:any;
 
   transaccion: TransaccionRequest = {
-    idProducto: '',
-    block: []
+    productId: '',
+    blocks: []
   }
 
   block: BlockModel = {
@@ -34,21 +34,15 @@ export class ProductoService {
   endPointDelete = 'http://localhost:8081/api/producto/eliminar';
   endPointEdit = 'http://localhost:8081/api/producto/actualizar';
   endpointGetById = 'http://localhost:8081/api/producto/verProducto';
+  endpointAddBlockGenesis = 'http://localhost:8083/api/blockchain/registroGenesis';
   endpointAddBlock = 'http://localhost:8083/api/blockchain/registroTransaccion';
 
   insertarProducto(producto: ProductoRequest) {
     this.http.post<ProductoResponse>(this.endpointAdd, producto).subscribe({
       next: (data) => {
         console.log('datos', data);
-        this.transaccion.idProducto = data._id
-        const tiempoTranscurrido = Date.now();
-        const hoy = new Date(tiempoTranscurrido);
-        this.block.fechaInicio = hoy.toDateString()
-        this.block.fechaFin = hoy.toDateString()
-        this.block.comentario = "Se agregó un producto"
-        this.block.tipoTransaccion = "Creación"
-        this.transaccion.block.push(this.block)
-        this.insertarTransaccion(this.transaccion)
+        this.crearBloqueGenesis(data._id, "Se agregó un producto", "Creación")
+        this.insertarTransaccionGenesis(this.transaccion)
       },
       error: (error) => {
         console.error(' error!', error);
@@ -73,6 +67,8 @@ export class ProductoService {
     this.http.delete(this.endPointDelete + '/' + id).subscribe({
       next: () => {
         console.log('Delete successful');
+        this.crearBloque("Eliminación de producto", "Eliminación")
+        this.insertarTransaccion(id, this.block)
       },
       error: (error) => {
         console.error('There was an error!', error);
@@ -84,6 +80,8 @@ export class ProductoService {
     this.http.put<ProductoResponse>(this.endPointEdit, producto).subscribe({
       next: (data) => {
         console.log('datos', data);
+        this.crearBloque("Edición de información del producto", "Edición")
+        this.insertarTransaccion(data._id, this.block)
       },
       error: (error) => {
         console.error(' error!', error);
@@ -91,8 +89,8 @@ export class ProductoService {
     });
   }
 
-  insertarTransaccion(transaccion: TransaccionRequest) {
-    this.http.post<TransaccionRequest>(this.endpointAddBlock, transaccion).subscribe({
+  insertarTransaccionGenesis(transaccion: TransaccionRequest) {
+    this.http.post<TransaccionRequest>(this.endpointAddBlockGenesis, transaccion).subscribe({
       next: (data) => {
         console.log('datos', data);
       },
@@ -100,6 +98,37 @@ export class ProductoService {
         console.error(' error!', error);
       },
     });
+  }
+
+  insertarTransaccion(id: string, block: BlockModel){
+    this.http.post<TransaccionRequest>(this.endpointAddBlock + '/' + id, block).subscribe({
+      next: (data) => {
+        console.log('datos', data);
+      },
+      error: (error) => {
+        console.error(' error!', error);
+      },
+    });
+  }
+
+  crearBloqueGenesis(id: string, comentario: string, tipoTransaccion: string){
+    this.transaccion.productId = id
+    const tiempoTranscurrido = Date.now();
+    const hoy = new Date(tiempoTranscurrido);
+    this.block.fechaInicio = hoy.toDateString()
+    this.block.fechaFin = hoy.toDateString()
+    this.block.comentario = comentario
+    this.block.tipoTransaccion = tipoTransaccion
+    this.transaccion.blocks.push(this.block)
+  }
+
+  crearBloque(comentario: string, tipoTransaccion: string){
+    const tiempoTranscurrido = Date.now();
+    const hoy = new Date(tiempoTranscurrido);
+    this.block.fechaInicio = hoy.toDateString()
+    this.block.fechaFin = hoy.toDateString()
+    this.block.comentario = comentario
+    this.block.tipoTransaccion = tipoTransaccion
   }
 
   handleError(error: HttpErrorResponse) {

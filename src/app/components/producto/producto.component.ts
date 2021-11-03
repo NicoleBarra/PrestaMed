@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { BlockchainService } from 'src/app/module/service/blockchain.service';
 import { CatalogoService } from 'src/app/module/service/catalogo.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class ProductoComponent implements OnInit {
 
   destroy$: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private catalogoService: CatalogoService) { }
+  constructor(private catalogoService: CatalogoService, private blockchainService: BlockchainService) { }
 
   ngOnInit(): void {
     this.getProductoId()
@@ -46,5 +47,9 @@ export class ProductoComponent implements OnInit {
       default:
         return "Error, no existe"
     }
+  }
+
+  setIdProduct(){
+    this.blockchainService.id = this.producto._id
   }
 }
