@@ -16,7 +16,8 @@ import { MyProductsEditComponent } from './components/my-products-edit/my-produc
 import { HistorialBlockchainComponent } from './components/historial-blockchain/historial-blockchain.component';
 import { CategoriasComponent } from './components/categorias/categorias.component';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
-import { EditarPerfilUsuarioComponent } from './components/editar-perfil-usuario/editar-perfil-usuario.component'
+import { EditarPerfilUsuarioComponent } from './components/editar-perfil-usuario/editar-perfil-usuario.component';
+import { FiltradoComponent } from './components/filtrado/filtrado.component'
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { EditarPerfilUsuarioComponent } from './components/editar-perfil-usuario
     HistorialBlockchainComponent,
     CategoriasComponent,
     PerfilUsuarioComponent,
-    EditarPerfilUsuarioComponent
+    EditarPerfilUsuarioComponent,
+    FiltradoComponent
   ],
   imports: [
     BrowserModule,

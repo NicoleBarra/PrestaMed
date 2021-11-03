@@ -7,6 +7,8 @@ import { HistorialBlockchainComponent } from './components/historial-blockchain/
 import {CategoriasComponent} from './components/categorias/categorias.component';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 import { EditarPerfilUsuarioComponent } from './components/editar-perfil-usuario/editar-perfil-usuario.component';
+import { FiltradoComponent } from './components/filtrado/filtrado.component';
+
 const routes: Routes = [
   {
     path: 'mis-productos',
@@ -42,6 +44,10 @@ const routes: Routes = [
   path: 'editar-perfil',
   component: EditarPerfilUsuarioComponent ,
 
+},
+{
+  path: 'filtrado',
+  component: FiltradoComponent ,
 },
 
 ];
