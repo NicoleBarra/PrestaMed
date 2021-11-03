@@ -4,12 +4,28 @@ import { ProductoRequest } from 'src/app/models/ProductoRequest';
 import { retry, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { ProductoResponse } from 'src/app/models/ProductoResponse';
+import { TransaccionRequest } from 'src/app/models/TransaccionRequest';
+import { BlockModel } from 'src/app/models/BlockModel';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductoService {
   id_editar:any;
+
+  transaccion: TransaccionRequest = {
+    idProducto: '',
+    block: []
+  }
+
+  block: BlockModel = {
+    fechaInicio: '',
+    fechaFin: '',
+    tipoTransaccion: '',
+    //usuarioProveedor: '',
+    //usuarioFinal: '',
+    comentario: ''
+  }
 
   constructor(private http: HttpClient) { }
 
@@ -18,11 +34,21 @@ export class ProductoService {
   endPointDelete = 'http://localhost:8081/api/producto/eliminar';
   endPointEdit = 'http://localhost:8081/api/producto/actualizar';
   endpointGetById = 'http://localhost:8081/api/producto/verProducto';
+  endpointAddBlock = 'http://localhost:8083/api/blockchain/registroTransaccion';
 
   insertarProducto(producto: ProductoRequest) {
-    this.http.post<ProductoRequest>(this.endpointAdd, producto).subscribe({
+    this.http.post<ProductoResponse>(this.endpointAdd, producto).subscribe({
       next: (data) => {
         console.log('datos', data);
+        this.transaccion.idProducto = data._id
+        const tiempoTranscurrido = Date.now();
+        const hoy = new Date(tiempoTranscurrido);
+        this.block.fechaInicio = hoy.toDateString()
+        this.block.fechaFin = hoy.toDateString()
+        this.block.comentario = "Se agregó un producto"
+        this.block.tipoTransaccion = "Creación"
+        this.transaccion.block.push(this.block)
+        this.insertarTransaccion(this.transaccion)
       },
       error: (error) => {
         console.error(' error!', error);
@@ -56,6 +82,17 @@ export class ProductoService {
 
   editarProducto(producto: ProductoResponse){
     this.http.put<ProductoResponse>(this.endPointEdit, producto).subscribe({
+      next: (data) => {
+        console.log('datos', data);
+      },
+      error: (error) => {
+        console.error(' error!', error);
+      },
+    });
+  }
+
+  insertarTransaccion(transaccion: TransaccionRequest) {
+    this.http.post<TransaccionRequest>(this.endpointAddBlock, transaccion).subscribe({
       next: (data) => {
         console.log('datos', data);
       },
