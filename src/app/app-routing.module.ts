@@ -5,7 +5,8 @@ import { MyProductsAddComponent } from './components/my-products-add/my-products
 import { MyProductsEditComponent } from './components/my-products-edit/my-products-edit.component';
 import { HistorialBlockchainComponent } from './components/historial-blockchain/historial-blockchain.component';
 import {CategoriasComponent} from './components/categorias/categorias.component';
-
+import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
+import { EditarPerfilUsuarioComponent } from './components/editar-perfil-usuario/editar-perfil-usuario.component';
 const routes: Routes = [
   {
     path: 'mis-productos',
@@ -32,6 +33,17 @@ const routes: Routes = [
   component: CategoriasComponent,
 
 },
+{
+  path: 'perfil',
+  component: PerfilUsuarioComponent,
+
+},
+{
+  path: 'editar-perfil',
+  component: EditarPerfilUsuarioComponent ,
+
+},
+
 ];
 
 @NgModule({

@@ -14,7 +14,9 @@ import { MyProductsAddComponent } from './components/my-products-add/my-products
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MyProductsEditComponent } from './components/my-products-edit/my-products-edit.component';
 import { HistorialBlockchainComponent } from './components/historial-blockchain/historial-blockchain.component';
-import { CategoriasComponent } from './components/categorias/categorias.component'
+import { CategoriasComponent } from './components/categorias/categorias.component';
+import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
+import { EditarPerfilUsuarioComponent } from './components/editar-perfil-usuario/editar-perfil-usuario.component'
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { CategoriasComponent } from './components/categorias/categorias.componen
     NavbarComponent,
     MyProductsEditComponent,
     HistorialBlockchainComponent,
-    CategoriasComponent
+    CategoriasComponent,
+    PerfilUsuarioComponent,
+    EditarPerfilUsuarioComponent
   ],
   imports: [
     BrowserModule,
