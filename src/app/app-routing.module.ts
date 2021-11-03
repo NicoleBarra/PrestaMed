@@ -8,6 +8,7 @@ import {CategoriasComponent} from './components/categorias/categorias.component'
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 import { EditarPerfilUsuarioComponent } from './components/editar-perfil-usuario/editar-perfil-usuario.component';
 import { FiltradoComponent } from './components/filtrado/filtrado.component';
+import { ProductoComponent } from './components/producto/producto.component';
 
 const routes: Routes = [
   {
@@ -48,6 +49,10 @@ const routes: Routes = [
 {
   path: 'filtrado',
   component: FiltradoComponent ,
+},
+{
+  path: 'producto',
+  component: ProductoComponent ,
 },
 
 ];

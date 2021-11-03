@@ -17,7 +17,8 @@ import { HistorialBlockchainComponent } from './components/historial-blockchain/
 import { CategoriasComponent } from './components/categorias/categorias.component';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 import { EditarPerfilUsuarioComponent } from './components/editar-perfil-usuario/editar-perfil-usuario.component';
-import { FiltradoComponent } from './components/filtrado/filtrado.component'
+import { FiltradoComponent } from './components/filtrado/filtrado.component';
+import { ProductoComponent } from './components/producto/producto.component'
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { FiltradoComponent } from './components/filtrado/filtrado.component'
     CategoriasComponent,
     PerfilUsuarioComponent,
     EditarPerfilUsuarioComponent,
-    FiltradoComponent
+    FiltradoComponent,
+    ProductoComponent
   ],
   imports: [
     BrowserModule,
