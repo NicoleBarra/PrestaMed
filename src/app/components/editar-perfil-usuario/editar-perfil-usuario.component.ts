@@ -16,7 +16,6 @@ export class EditarPerfilUsuarioComponent implements OnInit {
   destroy$: Subject<boolean> = new Subject<boolean>();
 
   usuario: UsuarioInfoResponse = {
-
     email: '',
     password: '',
     first_name: '',
@@ -24,10 +23,13 @@ export class EditarPerfilUsuarioComponent implements OnInit {
     zone: ''
   }
 
-
   constructor(private usuarioService: UsuarioService, private formBuild: FormBuilder) {}
 
   ngOnInit(): void {
+    this.getInfoUsuario()
+  }
+
+  getInfoUsuario(){
     const email1 = JSON.parse(localStorage.getItem('profile') || '{}').name;
     this.usuarioService
     .getUsuario(email1)
@@ -72,9 +74,10 @@ export class EditarPerfilUsuarioComponent implements OnInit {
       this.usuarioService.editarUsuario(this.usuario)
       this.modeloUsuarioEdit.reset()
       this.resetUsuario()
+      this.getInfoUsuario()
     }
 
-    
+
   resetUsuario(){
     this.usuario = {
       email: '',
@@ -84,9 +87,4 @@ export class EditarPerfilUsuarioComponent implements OnInit {
       zone: ''
     }
   }
-
-    
-
-  
-
 }
