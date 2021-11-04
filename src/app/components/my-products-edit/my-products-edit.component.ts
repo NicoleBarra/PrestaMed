@@ -18,7 +18,7 @@ export class MyProductsEditComponent implements OnInit {
     _id: '',
     name: '',
     category: '',
-    //ownerId: '',
+    ownerId: '',
     rentPriceDay: 0,
     sellPrice: 0,
     brand: '',
@@ -30,7 +30,6 @@ export class MyProductsEditComponent implements OnInit {
   constructor(private productoService: ProductoService, private formbuild: FormBuilder) { }
 
   ngOnInit(): void {
-    console.log("el id que recibo", this.productoService.id_editar)
     this.productoService
       .getProducto(this.productoService.id_editar)
       .pipe(takeUntil(this.destroy$))
@@ -73,6 +72,7 @@ export class MyProductsEditComponent implements OnInit {
       this.producto.sellPrice = this.modeloProductoEdit.value.sellPrice;
     }
     this.producto.category = this.modeloProductoEdit.value.category;
+    this.producto.ownerId = JSON.parse(localStorage.getItem('profile') || '{}').sub
   }
 
   actualizarProducto(){
@@ -98,7 +98,7 @@ export class MyProductsEditComponent implements OnInit {
       _id: '',
       name: '',
       category: '',
-      //ownerId: '',
+      ownerId: '',
       rentPriceDay: 0,
       sellPrice: 0,
       brand: '',

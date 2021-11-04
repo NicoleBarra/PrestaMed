@@ -1,7 +1,7 @@
 export interface ProductoRequest {
   name: string;
   category: string;
-  //ownerId: string;
+  ownerId: string;
   rentPriceDay: number;
   sellPrice: number;
   brand: string;
