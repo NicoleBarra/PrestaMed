@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { AppComponent } from './app.component';
 
 import Auth0Lock from 'auth0-lock';
 @Injectable({
@@ -47,6 +47,7 @@ export class AuthService {
   };
 
   lock = new Auth0Lock('qKT5xFSOK5eedEPbWhbYLCB3n9gVgIr8','dev-kv-xwdtb.us.auth0.com',this.options2)
+  
 
   constructor(private router: Router) {
       this.lock.on('authenticated', (authResult: any) => {
@@ -59,7 +60,8 @@ export class AuthService {
             console.log(authResult)
             localStorage.setItem('token', authResult.idToken);
             localStorage.setItem('profile', JSON.stringify(profile));
-            this.router.navigate(['/']);
+            this.router.navigate(['/categorias']);
+            
           }
 
 
@@ -68,8 +70,9 @@ export class AuthService {
 ;  }
   login() {
     this.lock.show();
+    
   }
   logout() {
-    localStorage.removeItem('profile');
-    localStorage.removeItem('token');
+    
+    
   }}

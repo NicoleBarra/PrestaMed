@@ -1,8 +1,10 @@
 
    
 import { Component, Inject, OnInit } from '@angular/core';
-import { AuthService } from "@auth0/auth0-angular";
+import { Router } from '@angular/router';
 import { DOCUMENT } from "@angular/common";
+import { AppComponent } from '../../app.component';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-navbar-logged',
@@ -11,13 +13,17 @@ import { DOCUMENT } from "@angular/common";
 })
 export class NavbarLoggedComponent implements OnInit {
 
-  constructor(private auth:AuthService,@Inject(DOCUMENT)private doc: Document) { }
+  constructor(public authService: AuthService, @Inject(DOCUMENT)private doc: Document, private router: Router, public appComponent: AppComponent) { }
 
   ngOnInit(): void {
   }
   logout(): void {
-    this.auth.logout({returnTo: this.doc.location.origin})
-  
+    
+    localStorage.removeItem('profile');
+    localStorage.removeItem('token');
+    
+    this.authService.logout();
+    this.router.navigate(['']);
   }
 
 }
