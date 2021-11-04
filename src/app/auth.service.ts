@@ -70,5 +70,6 @@ export class AuthService {
     this.lock.show();
   }
   logout() {
-    // ...implement logout
+    localStorage.removeItem('profile');
+    localStorage.removeItem('token');
   }}
