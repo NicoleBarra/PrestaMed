@@ -9,6 +9,7 @@ import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuar
 import { EditarPerfilUsuarioComponent } from './components/editar-perfil-usuario/editar-perfil-usuario.component';
 import { FiltradoComponent } from './components/filtrado/filtrado.component';
 import { ProductoComponent } from './components/producto/producto.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
@@ -53,6 +54,11 @@ const routes: Routes = [
 {
   path: 'producto',
   component: ProductoComponent ,
+},
+{
+  path: 'login', 
+  component: LoginComponent, 
+
 },
 
 ];

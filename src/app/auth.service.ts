@@ -15,7 +15,7 @@ export class AuthService {
       primaryColor: '#355e3b'
     },
     auth: {
-      redirectUrl: 'http://localhost:4200/login',
+      redirectUrl: 'http://localhost:4200/',
       responseType: 'token id_token',
       audience: 'https://dev-kv-xwdtb.us.auth0.com/userinfo',
       params: {

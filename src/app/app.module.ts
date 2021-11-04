@@ -19,7 +19,8 @@ import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuar
 import { EditarPerfilUsuarioComponent } from './components/editar-perfil-usuario/editar-perfil-usuario.component';
 import { FiltradoComponent } from './components/filtrado/filtrado.component';
 import { ProductoComponent } from './components/producto/producto.component';
-import { NavbarLoggedComponent } from './components/navbar-logged/navbar-logged.component'
+import { NavbarLoggedComponent } from './components/navbar-logged/navbar-logged.component';
+import { LoginComponent } from './login/login.component'
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { NavbarLoggedComponent } from './components/navbar-logged/navbar-logged.
     EditarPerfilUsuarioComponent,
     FiltradoComponent,
     ProductoComponent,
-    NavbarLoggedComponent
+    NavbarLoggedComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
