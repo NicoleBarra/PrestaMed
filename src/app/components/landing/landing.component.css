@@ -1,0 +1,241 @@
+/*
+-------------------------------
+|                             |
+|       Banner Section        |
+|                             |
+-------------------------------
+*/
+#banner {
+    position: relative;
+    height: 400px;
+    background-color: #A7D7C5;
+    margin-top: -50px;
+}
+#banner #content{
+    position: relative;
+    width: 50%;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    float: left;
+}
+#content .logo{
+    left: 20px;
+    position: relative;
+    background-image: url("../../../assets/Imgs/logo.png");
+    background-size: 100%;                      
+    background-repeat: no-repeat;
+    background-position: center; 
+    width: 200px;
+    height: 180px;
+}
+#content h1{
+    margin-top: 20px;
+    font-size: 3vw;
+    font-weight: lighter;
+}
+#banner #image{
+    position: relative;
+    left: 10%;
+    float: left;
+    width: 30%;
+    height: 400px;
+    position: relative;
+    background-image: url("../../../assets/Imgs/mainpage.png");
+    background-size: 90%;                      
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+
+/*
+-------------------------------
+|                             |
+|         Info Section        |
+|                             |
+-------------------------------
+*/
+#info{
+    position: relative;
+    margin-top: 30px;
+    width: 97%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#info #mision{
+    float: left;
+    left: 14%;
+    position: relative;
+    width: 35%;
+    height: 400px;
+    background-color: #A7D7C5;
+    margin-bottom: 40px;
+}
+#info #vision{
+    float: left;
+    position: relative;
+    left: 16%;
+    width: 35%;
+    height: 400px;
+    background-color: #A7D7C5;
+}
+#mision h1{
+    font-size: 2vw;
+    font-weight: lighter;
+}
+#vision h1{
+    font-size: 2vw;
+    font-weight: lighter;
+}
+#mision .text{
+    width: 80%;
+    position: relative;
+    left: 50%;
+    top: 40px;
+    transform: translateX(-50%);
+}
+#vision .text{
+    width: 80%;
+    position: relative;
+    left: 50%;
+    top: 40px;
+    transform: translateX(-50%);
+}
+#mision .facilsegura{
+    position: relative;
+    background-image: url("../../../assets/Imgs/facilsegura.png");
+    background-size: 100%;                      
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 200px;
+    height: 120px; 
+    margin-top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 20px;
+}
+#vision .intercambio{
+    position: relative;
+    background-image: url("../../../assets/Imgs/LifesaversUIWindow.png");
+    background-size: 100%;                      
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 240px;
+    height: 160px; 
+    margin-top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 20px;
+}
+#mision a h1{
+    text-align: center;
+    border-radius: 20px;
+    font-size: 20px;
+    background-color: #32635F;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#vision a h1{
+    text-align: center;
+    border-radius: 20px;
+    font-size: 20px;
+    background-color: #32635F;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#info .button-link:hover{
+    background-color: white;
+    color: #32635F !important;
+}
+/*
+-------------------------------
+|                             |
+|          Responsive         |
+|                             |
+-------------------------------
+*/
+@media (max-width:1060px) {
+   #content .logo{
+        width: 150px;
+        height: 130px;
+    }
+    #content h1{
+        margin-top: 20px;
+        font-size: 3.3vw;
+        font-weight: lighter;
+    }
+    #banner #image{
+        background-size: 100%;
+    }
+    #info #mision{
+        left: 4%;
+        width: 45%;
+    }
+    #info #vision{
+        left: 6%;
+        width: 45%;
+    }
+}
+@media (max-width:815px) {
+    #banner #content{
+        text-align: center;
+        position: relative;
+        width: 100%;
+        left: 10%;
+        left: 50%;
+        top: 5%;
+        transform: translateX(-50%);
+        float: none;
+    }
+    #content .logo{
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    #content h1{
+        margin-top: 20px;
+        font-size: 3.4vw;
+        font-weight: lighter;
+    }
+    #banner #image{
+        width: 220px;
+        background-size: 100%;
+        float: none;
+        top: -80px;
+        left: 30%;    
+    }
+    #info #mision{
+        float: none;
+        width: 95%;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-bottom: 20px;
+    }
+    #info #vision{
+        float: none;
+        width: 95%;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-bottom: 40px;
+    }
+    #mision h1{
+        font-size: 4vw;
+        font-weight: lighter;
+    }
+    #vision h1{
+        font-size: 4vw;
+        font-weight: lighter;
+    }
+    #mision .facilsegura{
+        margin-top: 80px;
+    }
+    #vision .intercambio{
+        margin-top: 80px;
+    }
+}
