@@ -22,8 +22,8 @@ export class ProductoService {
     fechaInicio: '',
     fechaFin: '',
     tipoTransaccion: '',
-    //usuarioProveedor: '',
-    //usuarioFinal: '',
+    usuarioProveedor: '',
+    usuarioFinal: '',
     comentario: ''
   }
 
@@ -57,7 +57,6 @@ export class ProductoService {
   }
 
   getProducto(id: string) {
-    console.log("el id que voy abuscar", id)
     return this.http
       .get<ProductoResponse>(this.endpointGetById + '/' + id)
       .pipe(retry(3), catchError(this.handleError));
@@ -117,6 +116,8 @@ export class ProductoService {
     const hoy = new Date(tiempoTranscurrido);
     this.block.fechaInicio = hoy.toDateString()
     this.block.fechaFin = hoy.toDateString()
+    this.block.usuarioProveedor = this.obtenerId()
+    this.block.usuarioFinal = this.obtenerId()
     this.block.comentario = comentario
     this.block.tipoTransaccion = tipoTransaccion
     this.transaccion.blocks.push(this.block)
@@ -127,8 +128,15 @@ export class ProductoService {
     const hoy = new Date(tiempoTranscurrido);
     this.block.fechaInicio = hoy.toDateString()
     this.block.fechaFin = hoy.toDateString()
+    this.block.usuarioProveedor = this.obtenerId()
+    this.block.usuarioFinal = this.obtenerId()
     this.block.comentario = comentario
     this.block.tipoTransaccion = tipoTransaccion
+  }
+
+  obtenerId(){
+    const sub = JSON.parse(localStorage.getItem('profile') || '{}').sub
+    return sub.substr(6, )
   }
 
   handleError(error: HttpErrorResponse) {

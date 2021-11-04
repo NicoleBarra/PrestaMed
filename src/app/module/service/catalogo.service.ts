@@ -16,6 +16,7 @@ export class CatalogoService {
 
   endpointGetProductoCategoria = 'http://localhost:8082/api/catalogo/verProductos';
   endpointGetProductoId = 'http://localhost:8082/api/catalogo/verProducto';
+  endpointMisProductos = 'http://localhost:8082/api/catalogo/verMisProductos';
 
   getProductosCategoria(categoria: string){
     return this.http
@@ -26,6 +27,12 @@ export class CatalogoService {
   getProductoId(id: string){
     return this.http
       .get<ProductoResponse>(this.endpointGetProductoId + '/' + id)
+      .pipe(retry(3), catchError(this.handleError));
+  }
+
+  getMisProductos(id: string) {
+    return this.http
+      .get<ProductoResponse[]>(this.endpointMisProductos + '/' + id)
       .pipe(retry(3), catchError(this.handleError));
   }
 
