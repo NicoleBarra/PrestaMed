@@ -23,15 +23,23 @@ export class PerfilUsuarioComponent implements OnInit {
   }
 
   getUsuario(){
-    const email = JSON.parse(localStorage.getItem('profile') || '{}').name;
+    const email1 = JSON.parse(localStorage.getItem('profile') || '{}').name;
     this.usuarioService
-      .getUsuario(email)
+      .getUsuario(email1)
       .pipe(takeUntil(this.destroy$))
       .subscribe((data: any) => {
         this.usuario = data;
         console.log(this.usuario)
       });
 
+  }
+
+  
+  eliminar(){
+    const email2 = JSON.parse(localStorage.getItem('profile') || '{}').name;
+    this.usuarioService.eliminarUsuario(email2);
+    localStorage.removeItem('profile');
+    localStorage.removeItem('token');
   }
 
 }
