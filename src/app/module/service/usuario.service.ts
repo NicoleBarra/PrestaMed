@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { UsuarioResponse } from 'src/app/models/UsuarioResponse';
+import { UsuarioInfoResponse } from 'src/app/models/UsuarioInfoResponse';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -32,6 +33,18 @@ export class UsuarioService {
       },
       error: (error) => {
         console.error('There was an error!', error);
+      },
+    });
+  }
+
+  
+  editarUsuario(usuario: UsuarioInfoResponse){
+    this.http.put<UsuarioInfoResponse>(this.endpointUpdate, usuario).subscribe({
+      next: (data) => {
+        console.log('datos', data);
+      },
+      error: (error) => {
+        console.error(' error!', error);
       },
     });
   }
