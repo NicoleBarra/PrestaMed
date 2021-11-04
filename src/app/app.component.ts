@@ -13,6 +13,7 @@ export class AppComponent {
   constructor(){
     console.log('profile')
     console.log(localStorage.getItem('profile'))
+    console.log(localStorage.getItem('token'))
     
   }
 
