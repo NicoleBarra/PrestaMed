@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { DOCUMENT } from "@angular/common";
+import { Inject } from '@angular/core'; 
+
 
 import Auth0Lock from 'auth0-lock';
 @Injectable({
@@ -59,7 +62,7 @@ export class AuthService {
             console.log(authResult)
             localStorage.setItem('token', authResult.idToken);
             localStorage.setItem('profile', JSON.stringify(profile));
-            this.router.navigate(['/']);
+            this.router.navigate(['/categorias']);
           }
 
 
@@ -70,5 +73,6 @@ export class AuthService {
     this.lock.show();
   }
   logout() {
-    // ...implement logout
+   
+    
   }}
