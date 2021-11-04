@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { CatalogoService } from 'src/app/module/service/catalogo.service';
 import { ProductoService } from 'src/app/module/service/producto.service';
 
 @Component({
@@ -14,19 +15,33 @@ export class MyProductsComponent implements OnInit {
 
   destroy$: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private productoService: ProductoService) { }
+  constructor(private productoService: ProductoService, private catalogueService: CatalogoService) { }
 
   ngOnInit(): void {
-    this.getAllProductos()
+    this.getMisProductos()
   }
 
-  getAllProductos(){
+  getMisProductos(){
+    this.catalogueService
+      .getMisProductos(this.obtenerId())
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data: any[]) => {
+        this.productos = data;
+      });
+  }
+
+  /*getAllProductos(){
     this.productoService
       .getAllProductos()
       .pipe(takeUntil(this.destroy$))
       .subscribe((data: any[]) => {
         this.productos = data;
       });
+  }*/
+
+  obtenerId(){
+    const sub = JSON.parse(localStorage.getItem('profile') || '{}').sub
+    return sub.substr(6, )
   }
 
   convertirCategoria(categoria: string){
@@ -50,7 +65,7 @@ export class MyProductsComponent implements OnInit {
 
   eliminar(id: string){
     this.productoService.eliminarProducto(id);
-    this.getAllProductos();
+    this.getMisProductos();
   }
 
   editar(id: string){

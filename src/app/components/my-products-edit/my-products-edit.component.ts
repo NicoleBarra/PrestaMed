@@ -18,7 +18,7 @@ export class MyProductsEditComponent implements OnInit {
     _id: '',
     name: '',
     category: '',
-    ownerId: '',
+    ownerUser: '',
     rentPriceDay: 0,
     sellPrice: 0,
     brand: '',
@@ -72,7 +72,7 @@ export class MyProductsEditComponent implements OnInit {
       this.producto.sellPrice = this.modeloProductoEdit.value.sellPrice;
     }
     this.producto.category = this.modeloProductoEdit.value.category;
-    this.producto.ownerId = JSON.parse(localStorage.getItem('profile') || '{}').sub
+    this.producto.ownerUser = this.obtenerId()
   }
 
   actualizarProducto(){
@@ -98,7 +98,7 @@ export class MyProductsEditComponent implements OnInit {
       _id: '',
       name: '',
       category: '',
-      ownerId: '',
+      ownerUser: '',
       rentPriceDay: 0,
       sellPrice: 0,
       brand: '',
@@ -106,5 +106,10 @@ export class MyProductsEditComponent implements OnInit {
       rentSell: '',
       image: ''
     }
+  }
+
+  obtenerId(){
+    const sub = JSON.parse(localStorage.getItem('profile') || '{}').sub
+    return sub.substr(6, )
   }
 }

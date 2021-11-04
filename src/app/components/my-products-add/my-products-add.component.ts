@@ -32,7 +32,7 @@ export class MyProductsAddComponent implements OnInit {
     let producto: ProductoRequest = {
       name: this.modeloProducto.value.name,
       category: this.modeloProducto.value.category,
-      ownerId: JSON.parse(localStorage.getItem('profile') || '{}').sub,
+      ownerUser: this.obtenerId(),
       rentPriceDay: this.modeloProducto.value.rentPriceDay,
       sellPrice: this.modeloProducto.value.sellPrice,
       brand: this.modeloProducto.value.brand,
@@ -52,5 +52,10 @@ export class MyProductsAddComponent implements OnInit {
     } else {
       return "Renta Venta"
     }
+  }
+
+  obtenerId(){
+    const sub = JSON.parse(localStorage.getItem('profile') || '{}').sub
+    return sub.substr(6, )
   }
 }

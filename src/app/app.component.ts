@@ -10,17 +10,9 @@ import Auth0Lock from 'auth0-lock';
 })
 export class AppComponent {
   title = 'prestamed';
-
-  
-  
-
   constructor(public auth: AuthService){
- 
     console.log('profile')
     console.log(localStorage.getItem('profile'))
-    
   }
- 
-
 }
 
