@@ -13,6 +13,8 @@ export class AppComponent {
   constructor(public auth: AuthService){
     console.log('profile')
     console.log(localStorage.getItem('profile'))
+    console.log(localStorage.getItem('token'))
+    
   }
 }
 
