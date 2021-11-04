@@ -10,7 +10,9 @@ import Auth0Lock from 'auth0-lock';
 })
 export class AppComponent {
   title = 'prestamed';
-  loggedIn = true;
+
+  
+  
 
   constructor(public auth: AuthService){
  

@@ -22,8 +22,8 @@ export class ProductoService {
     fechaInicio: '',
     fechaFin: '',
     tipoTransaccion: '',
-    //usuarioProveedor: '',
-    //usuarioFinal: '',
+    usuarioProveedor: '',
+    usuarioFinal: '',
     comentario: ''
   }
 
@@ -117,6 +117,8 @@ export class ProductoService {
     const hoy = new Date(tiempoTranscurrido);
     this.block.fechaInicio = hoy.toDateString()
     this.block.fechaFin = hoy.toDateString()
+    this.block.usuarioProveedor = JSON.parse(localStorage.getItem('profile') || '{}').sub
+    this.block.usuarioFinal = JSON.parse(localStorage.getItem('profile') || '{}').sub
     this.block.comentario = comentario
     this.block.tipoTransaccion = tipoTransaccion
     this.transaccion.blocks.push(this.block)
@@ -127,6 +129,8 @@ export class ProductoService {
     const hoy = new Date(tiempoTranscurrido);
     this.block.fechaInicio = hoy.toDateString()
     this.block.fechaFin = hoy.toDateString()
+    this.block.usuarioProveedor = JSON.parse(localStorage.getItem('profile') || '{}').sub
+    this.block.usuarioFinal = JSON.parse(localStorage.getItem('profile') || '{}').sub
     this.block.comentario = comentario
     this.block.tipoTransaccion = tipoTransaccion
   }
