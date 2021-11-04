@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { AuthService } from './auth.service'
+
+import { AuthService } from '@auth0/auth0-angular';
 import Auth0Lock from 'auth0-lock';
 
 @Component({
@@ -9,11 +10,15 @@ import Auth0Lock from 'auth0-lock';
 })
 export class AppComponent {
   title = 'prestamed';
+  loggedIn = true;
 
-  constructor(){
+  constructor(public auth: AuthService){
+ 
     console.log('profile')
     console.log(localStorage.getItem('profile'))
     
   }
+ 
 
 }
+

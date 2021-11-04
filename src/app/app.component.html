@@ -16,6 +16,17 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<app-navbar ></app-navbar>
+
+<div *ngIf="(auth.isAuthenticated$ | async) === false; else elseBlock"> 
+  <app-navbar ></app-navbar>
+
+  </div> 
+  
+    <ng-template #elseBlock> 
+     
+      <app-navbar-logged></app-navbar-logged>
+    </ng-template>
+     
+    
 
   <router-outlet></router-outlet>
