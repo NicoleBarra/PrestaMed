@@ -39,19 +39,23 @@
 	margin-right: 50px;
 }
 .options .cate-icon{
+	width: 30px;
+	height: 100%;
 	background-image: url("../../../assets/Imgs/categorias.png");
 }
 .options .noti-icon{
+	width: 30px;
+	height: 100%;
 	background-image: url("../../../assets/Imgs/notificaciones.png");
 
 }
 .options .prof-icon{
 	position: relative;
 	float: left;
-	background-size: 55%;                      
+	background-size: 100%;                      
   background-repeat: no-repeat;
   background-position: center; 
-  width: 50px;
+    width: 30px;
 	height: 100%;
 	margin-right: 50px;
 	background-image: url("../../../assets/Imgs/perfil.png");
@@ -191,12 +195,12 @@
 	.logged #menu .logo{
 		margin-left: 20px;
 	}
-	.logged .options div{
-		width: 65px;
+	.logged .options div, label{
+		width: 44px;
 		margin-right: 20px !important;
 	}
 	.logged .options .prof-icon{
-		width: 45px;
+		width: 44px;
 		margin-right: 20px !important;
 	}
 }
