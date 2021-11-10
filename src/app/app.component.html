@@ -17,15 +17,14 @@
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<div *ngIf="isLog; else elseBlock"> 
-  <app-navbar-logged></app-navbar-logged>
-  
+<div *ngIf="(auth.isAuthenticated$ | async) === false; else elseBlock">
+<app-navbar ></app-navbar> 
+</div>
 
-  </div> 
   
     <ng-template #elseBlock> 
-      <app-navbar ></app-navbar> 
       
+      <app-navbar-logged></app-navbar-logged>
     </ng-template>
      
     

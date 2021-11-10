@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/auth.service';
+import { AuthService } from '@auth0/auth0-angular';
 import Auth0Lock from 'auth0-lock';
-import { AppComponent } from '../../app.component';
+
 
 
 @Component({
@@ -12,10 +12,14 @@ import { AppComponent } from '../../app.component';
 export class NavbarComponent implements OnInit {
 
 
-  constructor(public authService: AuthService, public appComponent: AppComponent) { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
   }
 
+  login(): void{
+    this.auth.loginWithRedirect();
+    console.log("boton");
+  }
   
 }
