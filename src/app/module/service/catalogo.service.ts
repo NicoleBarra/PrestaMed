@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { ProductoResponse } from 'src/app/models/ProductoResponse';
 import { retry, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import { RentSellFiltro } from 'src/app/models/RentSellFiltro';
+import { BasicProductInfo } from 'src/app/models/BasicProductInfo';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +19,8 @@ export class CatalogoService {
   endpointGetProductoId = 'http://localhost:8082/api/catalogo/verProducto';
   endpointMisProductos = 'http://localhost:8082/api/catalogo/verMisProductos';
   endpointRentSellFiltro = 'http://localhost:8082/api/catalogo/buscarProductoOpcion';
+  endpointBuscarNombreTodos = 'http://localhost:8082/api/catalogo/buscarTodosProducto';
+  endpointBuscarNombreCategoria = 'http://localhost:8082/api/catalogo/buscarProductoCategoria';
 
   getProductosCategoria(categoria: string){
     return this.http
@@ -60,6 +62,14 @@ export class CatalogoService {
     return this.http
       .get<ProductoResponse[]>(this.endpointGetProductoCategoria + '/' + categoria + '/' + opcion + '/' + orderBy)
       .pipe(retry(3), catchError(this.handleError));
+  }
+
+  buscarNombreTodos(info: BasicProductInfo) {
+    return this.http.post<ProductoResponse[]>(this.endpointBuscarNombreTodos, info)
+  }
+
+  buscarNombreCategoria(info: BasicProductInfo) {
+    return this.http.post<ProductoResponse[]>(this.endpointBuscarNombreCategoria, info)
   }
 
   handleError(error: HttpErrorResponse) {

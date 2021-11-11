@@ -3,6 +3,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CatalogoService } from 'src/app/module/service/catalogo.service';
 import { FormBuilder, Validator, FormArray, Validators } from '@angular/forms';
+import { BasicProductInfo } from 'src/app/models/BasicProductInfo';
 
 @Component({
   selector: 'app-filtrado',
@@ -57,5 +58,22 @@ export class FiltradoComponent implements OnInit {
         this.productos = data;
       });
     }
+  }
+
+  productInfo = this.formbuild.group({
+    nombre: ['', Validators.required]
+  });
+
+  buscarNombre(){
+    let productInfo: BasicProductInfo = {
+      name: this.productInfo.value.nombre,
+      category: this.catalogoService.categoria
+    }
+
+    this.catalogoService
+      .buscarNombreCategoria(productInfo)
+      .subscribe((data: any[]) => {
+        this.productos = data;
+      });
   }
 }
