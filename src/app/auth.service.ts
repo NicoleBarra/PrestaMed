@@ -57,9 +57,7 @@ export class AuthService {
             console.log(error)
           }
           else{
-            console.log(authResult)
-            localStorage.setItem('token', authResult.idToken);
-            localStorage.setItem('profile', JSON.stringify(profile));
+           
             this.router.navigate(['/categorias']);
             
           }

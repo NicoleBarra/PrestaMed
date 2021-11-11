@@ -26,16 +26,16 @@ ngOnInit(): void {
    
     user = user;
     console.log(user)
-    localStorage.setItem('user', JSON.stringify(user));
-    console.log(localStorage.getItem('user'));
+    localStorage.setItem('profile', JSON.stringify(user));
+    console.log(localStorage.getItem('profile'));
     
-const userStr = localStorage.getItem('user');
+const userStr = localStorage.getItem('profile');
 if (userStr ) { 
  
   const userObj = JSON.parse(userStr);
   
-  localStorage.setItem('email', JSON.stringify(userObj.name));
-console.log(localStorage.getItem('email'));  // Alex
+localStorage.setItem('email', JSON.stringify(userObj.name));
+console.log(localStorage.getItem('email'));  
  
 }
 
