@@ -3,8 +3,8 @@ import { Subject } from 'rxjs';
 import { ProductoService } from 'src/app/module/service/producto.service';
 import { takeUntil } from 'rxjs/operators';
 import { CatalogoService } from 'src/app/module/service/catalogo.service';
-import { RentSellFiltro } from 'src/app/models/RentSellFiltro';
 import { FormBuilder, Validator, FormArray, Validators } from '@angular/forms';
+import { BasicProductInfo } from 'src/app/models/BasicProductInfo';
 
 @Component({
   selector: 'app-categorias',
@@ -47,6 +47,10 @@ export class CategoriasComponent implements OnInit {
     orderBy: ['', Validators.required]
   });
 
+  productInfo = this.formbuild.group({
+    nombre: ['', Validators.required]
+  });
+
   filtroRentSell(){
     if(this.opcionModel.value.orderBy == ""){
       this.catalogoService
@@ -65,5 +69,18 @@ export class CategoriasComponent implements OnInit {
         this.productos = data;
       });
     }
+  }
+
+  buscarNombre(){
+    let productInfo: BasicProductInfo = {
+      name: this.productInfo.value.nombre,
+      category: this.catalogoService.categoria
+    }
+
+    this.catalogoService
+      .buscarNombreTodos(productInfo)
+      .subscribe((data: any[]) => {
+        this.productos = data;
+      });
   }
 }
