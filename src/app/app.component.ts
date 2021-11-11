@@ -16,23 +16,32 @@ export class AppComponent {
 
   constructor(public auth: AuthService){
 
-    console.log('profile')
-    console.log(localStorage.getItem('profile'))
-    console.log(localStorage.getItem('token'))
     
   }
-  login() {
+  user: string= "u";
+  email: string= "";
+  
+ngOnInit(): void {
+  this.auth.user$.subscribe((user) => {
+   
+    user = user;
+    console.log(user)
+    localStorage.setItem('user', JSON.stringify(user));
+    console.log(localStorage.getItem('user'));
     
-    this.isLog = true;
-    console.log("entro", this.isLog);
-    
-  }
-  logout() {
-    
-    this.isLog = false;
-    
-  }
+const userStr = localStorage.getItem('user');
+if (userStr ) { 
+ 
+  const userObj = JSON.parse(userStr);
+  
+  localStorage.setItem('email', JSON.stringify(userObj.name));
+console.log(localStorage.getItem('email'));  // Alex
+ 
+}
 
+   
+  })
+}
 
 }
 
