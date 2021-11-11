@@ -38,20 +38,20 @@
 	    	<input class="search-bar" type="search" placeholder="Buscar Productos" aria-label="Search">
 	    	<button type="submit"><svg viewBox="0 0 1024 1024"><path class="path1" d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z"></path></svg></button>
 	    </form>
-		<form class="filter-options">
+		<form class="filter-options" [formGroup]="opcionModel" (ngSubmit)="filtroRentSell()">
 			<label for="cars">Modalidad: </label>
-			<select name="cars" id="cars">
-				<option value="volvo">Ninguno</option>
-				<option value="saab">Renta</option>
-				<option value="opel">Venta</option>
+			<select name="cars" id="cars" formControlName="rentSell">
+        <option value="" selected disabled hidden>Seleccione un filtro</option>
+				<option value="Ambos">Ambos</option>
+				<option value="Renta">Renta</option>
+				<option value="Venta">Venta</option>
 			</select>
 			<label for="cars">Ordenar por: </label>
-			<select name="cars" id="cars">
-				<option value="volvo">Ninguno</option>
-				<option value="saab">Nuevo</option>
-				<option value="opel">Precio: Menor a Mayor</option>
-				<option value="audi">Precio: Mayor a Menor</option>
-				<option value="audi">Populares</option>
+			<select name="cars" id="cars" formControlName="orderBy">
+        <option value="" selected disabled hidden>Seleccione un filtro</option>
+        <option value="">Ninguno</option>
+        <option value="asc">Precio: Menor a Mayor</option>
+				<option value="desc">Precio: Mayor a Menor</option>
 			</select>
 			<button type="submit"><svg viewBox="0 0 1024 1024"><path class="path1" d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z"></path></svg></button>
 		</form>
