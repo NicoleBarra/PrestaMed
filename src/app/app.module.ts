@@ -21,7 +21,8 @@ import { FiltradoComponent } from './components/filtrado/filtrado.component';
 import { ProductoComponent } from './components/producto/producto.component';
 import { NavbarLoggedComponent } from './components/navbar-logged/navbar-logged.component';
 import { LoginComponent } from './login/login.component';
-import { LandingComponent } from './components/landing/landing.component'
+import { LandingComponent } from './components/landing/landing.component';
+import { SolicitudesComponent } from './components/solicitudes/solicitudes.component'
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { LandingComponent } from './components/landing/landing.component'
     ProductoComponent,
     NavbarLoggedComponent,
     LoginComponent,
-    LandingComponent
+    LandingComponent,
+    SolicitudesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,69 @@
+html, body{
+    background-color: #F4F9F4 !important;
+    font-family:'Poppins', sans-serif !important; 
+}
+.container {
+    background-color: #fff;
+    position: relative;
+    display: grid;
+    grid-template-columns: 300px 600px;
+    border-radius: 5px;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.356);
+    margin-bottom: 50px;
+}
+.container img {
+    width: 280px;
+    height: 280px;
+    border-radius: 5px 0 0 5px;
+    position: relative;
+    transform: translateY(-50%);
+    top: 50%;
+}
+.container .btn {
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding: 22px 45px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.title{
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.title h2{
+    font-weight: 800;
+    margin-left: 30px;
+}
+
+.btn-aceptar{
+    background-color: #32635F;
+    position: absolute;
+    bottom: 5px;
+    right: 140px;
+    padding: 15px 22px !important;
+}
+.btn-rechazar{
+    background-color: #A40707;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    padding: 15px 22px !important;
+}   
+
+.container__text {
+    padding: 40px 0;
+}
+.container__text p{
+    display: inline-block;
+}
+.container__text h1 {
+    color: #32635F;
+    font-weight: 600;
+}

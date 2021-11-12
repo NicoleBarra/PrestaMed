@@ -11,6 +11,7 @@ import { FiltradoComponent } from './components/filtrado/filtrado.component';
 import { ProductoComponent } from './components/producto/producto.component';
 import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './components/landing/landing.component';
+import { SolicitudesComponent } from './components/solicitudes/solicitudes.component';
 
 const routes: Routes = [
   {
@@ -64,6 +65,11 @@ const routes: Routes = [
 {
   path: '', 
   component: LandingComponent, 
+
+},
+{
+  path: 'solicitudes', 
+  component: SolicitudesComponent, 
 
 },
 
