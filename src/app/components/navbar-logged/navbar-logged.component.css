@@ -40,6 +40,9 @@
 	border: solid 0.5px;
 	border-color: black;
 }
+li:hover{
+	color: grey;
+}
 
 @media (max-width:815px) {
 
