@@ -7,7 +7,7 @@
                     <li>Categorias</li>
                 </a>
                 <a routerLink="/solicitudes" style="text-decoration: none; color: black;">
-                    <li>Solicitudes</li>
+                    <li>Mis solicitudes</li>
                 </a>
                 <li>
                     <div class="dropdown show">
@@ -15,9 +15,9 @@
                             Perfil
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" routerLink="/perfil">Perfil</a>
-                            <a class="dropdown-item" routerLink="/solicitudes">Solicitudes enviadas</a>
-                            <a class="dropdown-item" routerLink="/my-products">Mis productos</a>
+                            <a class="dropdown-item" [routerLink]="['/perfil']">Perfil</a>
+                            <a class="dropdown-item" [routerLink]="['/solicitudes-enviadas']">Solicitudes pendientes</a>
+                            <a class="dropdown-item" [routerLink]="['/mis-productos']">Mis productos</a>
                             <a class="dropdown-item" routerLink="/">Mensajes</a>
                         </div>
                     </div>

@@ -18,7 +18,7 @@ const routes: Routes = [
   {
     path: 'mis-productos',
     component: MyProductsComponent,
-  
+
 },
 {
   path: 'mis-productos-agregar',
@@ -59,23 +59,23 @@ const routes: Routes = [
   component: ProductoComponent ,
 },
 {
-  path: 'login', 
-  component: LoginComponent, 
+  path: 'login',
+  component: LoginComponent,
 
 },
 {
-  path: '', 
-  component: LandingComponent, 
+  path: '',
+  component: LandingComponent,
 
 },
 {
-  path: 'solicitudes', 
-  component: SolicitudesComponent, 
+  path: 'solicitudes',
+  component: SolicitudesComponent,
 
 },
 {
-  path: '/solicitudes-enviadas', 
-  component: SolicitudesEnviadasComponent, 
+  path: 'solicitudes-enviadas',
+  component: SolicitudesEnviadasComponent,
 
 },
 

@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { SolicitudModelo } from 'src/app/models/SolicitudModelo';
+import { SolicitudUsuario } from 'src/app/models/SolicitudUsuario';
 import { BlockchainService } from 'src/app/module/service/blockchain.service';
 import { CatalogoService } from 'src/app/module/service/catalogo.service';
+import { SolicitudService } from 'src/app/module/service/solicitud.service';
 
 @Component({
   selector: 'app-producto',
@@ -14,7 +17,9 @@ export class ProductoComponent implements OnInit {
 
   destroy$: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private catalogoService: CatalogoService, private blockchainService: BlockchainService) { }
+  constructor(private catalogoService: CatalogoService,
+    private blockchainService: BlockchainService,
+    private solicitudService: SolicitudService) { }
 
   ngOnInit(): void {
     this.getProductoId()
@@ -51,5 +56,31 @@ export class ProductoComponent implements OnInit {
 
   setIdProduct(){
     this.blockchainService.id = this.producto._id
+  }
+
+  crearSolicitudEnviada(tipo:string){
+    let solicitud: SolicitudModelo = {
+      idProducto: this.producto._id,
+      rentSellSelection: tipo,
+      status: 'enviada',
+      idOwnerProducto: this.producto.ownerUser,
+      idRemitente: this.obtenerId(),
+      name: this.producto.name,
+      brand: this.producto.brand,
+      description: this.producto.description,
+      category: this.producto.category
+    }
+    var soliLista = new Array()
+    soliLista.push(solicitud)
+    let solicitudUsuario: SolicitudUsuario = {
+      idUsuario: this.obtenerId(),
+      solicitudes: soliLista
+    }
+    this.solicitudService.insertarSolicitud(solicitudUsuario)
+  }
+
+  obtenerId(){
+    const sub = JSON.parse(localStorage.getItem('profile') || '{}').sub
+    return sub.substr(6, )
   }
 }

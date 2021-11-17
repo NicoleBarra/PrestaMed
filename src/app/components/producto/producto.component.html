@@ -15,8 +15,8 @@
                 {{producto.description}}
             </p>
             <div>
-                <a href=""><button style="background-color: seagreen; margin-right: 10px;">COMPRAR</button></a>
-                <a href=""><button style="background-color: darkslategrey;">RENTAR</button></a>
+                <button style="background-color: seagreen; margin-right: 10px;" (click)="crearSolicitudEnviada('Venta')">COMPRAR</button>
+                <button style="background-color: darkslategrey;" (click)="crearSolicitudEnviada('Renta')">RENTAR</button>
             </div>
         </div>
     </div>
