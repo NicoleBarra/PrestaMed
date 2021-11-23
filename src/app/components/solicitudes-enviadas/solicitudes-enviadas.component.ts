@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { BlockModel } from 'src/app/models/BlockModel';
 import { SolicitudModelo } from 'src/app/models/SolicitudModelo';
+import { BlockchainService } from 'src/app/module/service/blockchain.service';
 import { SolicitudService } from 'src/app/module/service/solicitud.service';
 
 @Component({
@@ -14,7 +16,7 @@ export class SolicitudesEnviadasComponent implements OnInit {
 
   destroy$: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private solicitudService: SolicitudService) { }
+  constructor(private solicitudService: SolicitudService, private blockService: BlockchainService) { }
 
   ngOnInit(): void {
     this.getSolicitudesEnviadas()
@@ -55,7 +57,8 @@ export class SolicitudesEnviadasComponent implements OnInit {
   }
 
   actualizarEstado(estado: string, index: number){
-    let solicitud: SolicitudModelo = {
+    this.registrarAcReSolicitud(estado, index)
+    /*let solicitud: SolicitudModelo = {
       idProducto: this.solicitudes[index].idProducto,
       name: this.solicitudes[index].name,
       brand: this.solicitudes[index].brand,
@@ -75,6 +78,21 @@ export class SolicitudesEnviadasComponent implements OnInit {
       error: (error) => {
         console.error(' error!', error);
       },
-    });
+    });*/
+  }
+
+  registrarAcReSolicitud(tipo:string, index:number){
+    console.log(this.solicitudes[index].idOwnerProducto)
+    const tiempoTranscurrido = Date.now();
+    const hoy = new Date(tiempoTranscurrido);
+    let block : BlockModel = {
+      fechaInicio: hoy.toDateString(),
+      fechaFin: hoy.toDateString(),
+      tipoTransaccion: tipo + ' la solicitud',
+      usuarioProveedor: this.obtenerId(),
+      usuarioFinal: this.solicitudes[index].idOwnerProducto,
+      comentario: ''
+    }
+    this.blockService.insertarTransaccion(this.solicitudes[index].idProducto, block)
   }
 }
