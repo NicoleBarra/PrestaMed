@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { BlockModel } from 'src/app/models/BlockModel';
@@ -21,11 +22,17 @@ export class ProductoComponent implements OnInit {
   destroy$: Subject<boolean> = new Subject<boolean>();
 
   constructor(private catalogoService: CatalogoService,
-    private blockchainService: BlockchainService) { }
+    private blockchainService: BlockchainService,
+    private formbuild: FormBuilder) { }
 
   ngOnInit(): void {
     this.getProductoId()
   }
+
+  fechasModelo = this.formbuild.group({
+    fechaInicio: ['', Validators.required],
+    fechaFin: ['', Validators.required]
+  });
 
   getProductoId(){
     this.catalogoService
@@ -89,17 +96,19 @@ export class ProductoComponent implements OnInit {
   }
 
   registrarSolicitud(tipo:string){
-    const tiempoTranscurrido = Date.now();
-    const hoy = new Date(tiempoTranscurrido);
-    // Pendiente cambiar la fecha de inicio
     let block : BlockModel = {
-      fechaInicio: hoy.toDateString(),
-      fechaFin: '',
+      fechaInicio: this.fechasModelo.value.fechaInicio,
+      fechaFin: this.fechasModelo.value.fechaFin,
       tipoTransaccion: tipo + ' de solicitud',
       usuarioProveedor: this.obtenerId(),
       usuarioFinal: this.idOwnerProduct,
       comentario: ''
     }
     this.blockchainService.insertarTransaccion(this.producto._id, block)
+  }
+
+  obtenerFechas(){
+    console.log(this.fechasModelo.value.fechaInicio)
+    console.log(this.fechasModelo.value.fechaFin)
   }
 }

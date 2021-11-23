@@ -10,10 +10,13 @@
         <p>Descripción: </p> <p>{{solicitud.description}}</p><br>
         <p>Modalidad: </p> <p>{{solicitud.rentSellSelection}}</p><br>
         <p>Categoría: </p> <p>{{convertirCategoria(solicitud.category)}}</p><br>
-        <p>Estatus: </p> <p>{{solicitud.status}} {{solicitud.indice}}</p>
-
-        <button class="btn btn-aceptar" (click)="actualizarEstado('aceptada', i)">Aceptar</button>
-        <button class="btn btn-rechazar" (click)="actualizarEstado('rechazada', i)">Rechazar</button>
+        <p>Estatus: </p> <p>{{solicitud.status}} {{solicitud.indice}}</p><br>
+        <form [formGroup]="comentarioModelo" (ngSubmit)="obtenerComentario()">
+          <label>Escribe el método de contacto o la razón de rechazo</label><br>
+          <input type="text" class="form-control" formControlName="comentario" placeholder="Comentario"><br>
+          <button class="btn btn-aceptar" type="submit" (click)="actualizarEstado('aceptada', i)">Aceptar</button>
+          <button class="btn btn-rechazar" type="submit" (click)="actualizarEstado('rechazada', i)">Rechazar</button>
+        </form>
     </div>
   </div>
 </section>

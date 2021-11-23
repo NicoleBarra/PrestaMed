@@ -14,10 +14,20 @@
                 Descripción:<br>
                 {{producto.description}}
             </p>
-            <div>
-                <button style="background-color: seagreen; margin-right: 10px;" (click)="crearSolicitudEnviada('Venta')">COMPRAR</button>
-                <button style="background-color: darkslategrey;" (click)="crearSolicitudEnviada('Renta')">RENTAR</button>
+            <p>
+              Por favor ingresa el periodo de entrega para la venta o el periodo de la renta
+            </p>
+            <form [formGroup]="fechasModelo" (ngSubmit)="obtenerFechas()">
+              <label>Fecha de inicio: </label>
+              <input type="date" formControlName="fechaInicio">
+              <br>
+              <label>Fecha fin: </label>
+              <input type="date" formControlName="fechaFin">
+              <div>
+                <button style="background-color: seagreen; margin-right: 10px;" type="submit" (click)="crearSolicitudEnviada('Venta')">COMPRAR</button>
+                <button style="background-color: darkslategrey;" type="submit" (click)="crearSolicitudEnviada('Renta')">RENTAR</button>
             </div>
+            </form>
         </div>
     </div>
 </section>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { BlockModel } from 'src/app/models/BlockModel';
@@ -16,7 +17,9 @@ export class SolicitudesEnviadasComponent implements OnInit {
 
   destroy$: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private solicitudService: SolicitudService, private blockService: BlockchainService) { }
+  constructor(private solicitudService: SolicitudService,
+    private blockService: BlockchainService,
+    private formbuild: FormBuilder) { }
 
   ngOnInit(): void {
     this.getSolicitudesEnviadas()
@@ -91,8 +94,16 @@ export class SolicitudesEnviadasComponent implements OnInit {
       tipoTransaccion: tipo + ' la solicitud',
       usuarioProveedor: this.obtenerId(),
       usuarioFinal: this.solicitudes[index].idOwnerProducto,
-      comentario: ''
+      comentario: this.comentarioModelo.value.comentario
     }
     this.blockService.insertarTransaccion(this.solicitudes[index].idProducto, block)
+  }
+
+  comentarioModelo = this.formbuild.group({
+    comentario: ['', Validators.required]
+  });
+
+  obtenerComentario(){
+    console.log(this.comentarioModelo.value.comentario)
   }
 }
