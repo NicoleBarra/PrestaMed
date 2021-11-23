@@ -3,27 +3,30 @@
         <div class="logo"></div>
         <div class="options">
             <ul class="list">
-                <a routerLink="/categorias" style="text-decoration: none; color: black;">
-                    <li>Categorias</li>
-                </a>
-                <a routerLink="/solicitudes" style="text-decoration: none; color: black;">
-                    <li>Mis solicitudes</li>
-                </a>
-                <li>
-                    <div class="dropdown show">
-                        <a class="btn dropdown-toggle profile" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-decoration: none; color: black;">
-                            Perfil
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" [routerLink]="['/perfil']">Perfil</a>
-                            <a class="dropdown-item" [routerLink]="['/solicitudes-enviadas']">Solicitudes pendientes</a>
-                            <a class="dropdown-item" [routerLink]="['/mis-productos']">Mis productos</a>
-                        </div>
-                    </div>
-                </li>
-                <a  style="text-decoration: none;" >
-                    <button id="endsesion" class="btn btn-delete btn-danger" (click)="logout()">Cerrar sesión</button>
-                </a>
+              <a routerLink="/" style="text-decoration: none; color: black;">
+                <li>Inicio</li>
+              </a>
+              <a routerLink="/categorias" style="text-decoration: none; color: black;">
+                  <li>Categorias</li>
+              </a>
+              <a routerLink="/solicitudes" style="text-decoration: none; color: black;">
+                  <li>Mis solicitudes</li>
+              </a>
+              <li>
+                  <div class="dropdown show">
+                      <a class="btn dropdown-toggle profile" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-decoration: none; color: black;">
+                          Perfil
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <a class="dropdown-item" [routerLink]="['/perfil']">Perfil</a>
+                          <a class="dropdown-item" [routerLink]="['/solicitudes-enviadas']">Solicitudes pendientes</a>
+                          <a class="dropdown-item" [routerLink]="['/mis-productos']">Mis productos</a>
+                      </div>
+                  </div>
+              </li>
+              <a  style="text-decoration: none;" >
+                  <button id="endsesion" class="btn btn-delete btn-danger" (click)="logout()">Cerrar sesión</button>
+              </a>
 
             </ul>
         </div>
