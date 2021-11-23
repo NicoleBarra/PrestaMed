@@ -34,34 +34,23 @@
 <section id="comments">
     <div id="menu">
         <ul class="list">
-            <li style="color: black; width: 100px; text-align: center; border-bottom: solid 2px; border-color: black; margin-left: -40px;">Reseñas</li>
-            <a [routerLink]="['/historial-producto']" (click)= "setIdProduct()"><li class="history" style="background-color: #5ECE7B; width: 162px; text-align: center;">VER HISTORIAL</li></a>
-
+            <li style="color: black; width: 100px; text-align: center; border-bottom: solid 2px; border-color: black; margin-left: -40px;">Blockchain</li>
+            <!--<a [routerLink]="['/historial-producto']" (click)= "setIdProduct()"><li class="history" style="background-color: #5ECE7B; width: 162px; text-align: center;">VER HISTORIAL</li></a>-->
         </ul>
-
     </div>
     <div id="comments-holder">
-        <h1 class="title">Reseñas</h1>
-        <div class="comment">
+        <h1 class="title">Historial</h1>
+        <div class="comment" *ngFor="let block of blockchain.blocks">
             <div class="content">
                 <p id="in">20</p>
-                <h1>Juana Pérez</h1>
-                <h2>Calificación: 4/5</h2>
-                <h3>3-10-2021</h3>
-                <p>Renté este tanque de oxígeno y me funcionó muy bien. El vendedor muy amable y atento. </p>
+                <h1>Usuario proveedor: {{block.usuarioProveedor}}</h1>
+                <h1>Usuario final: {{block.usuarioFinal}}</h1>
+                <h2>Tipo de transacción: {{block.tipoTransaccion}}</h2>
+                <h3>Fecha de inicio de transacción: {{block.fechaInicio}}</h3>
+                <h3>Fecha fin de transacción: {{block.fechaFin}}</h3>
+                <p>{{block.comentario}}</p>
                 <p id="in">20</p>
             </div>
-        </div>
-        <div class="comment">
-            <div class="content">
-                <p id="in">20</p>
-                <h1>Juana Pérez</h1>
-                <h2>Calificación: 4/5</h2>
-                <h3>3-10-2021</h3>
-                <p>Renté este tanque de oxígeno y me funcionó muy bien. El vendedor muy amable y atento. </p>
-                <p id="in">20</p>
-            </div>
-
         </div>
     </div>
 </section>

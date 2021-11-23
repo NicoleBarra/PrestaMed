@@ -18,6 +18,7 @@ import { SolicitudService } from 'src/app/module/service/solicitud.service';
 export class ProductoComponent implements OnInit {
   producto: any;
   idOwnerProduct: any;
+  blockchain:any;
 
   destroy$: Subject<boolean> = new Subject<boolean>();
 
@@ -27,6 +28,7 @@ export class ProductoComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProductoId()
+    this.getBlockchain()
   }
 
   fechasModelo = this.formbuild.group({
@@ -110,5 +112,15 @@ export class ProductoComponent implements OnInit {
   obtenerFechas(){
     console.log(this.fechasModelo.value.fechaInicio)
     console.log(this.fechasModelo.value.fechaFin)
+  }
+
+  getBlockchain(){
+    this.blockchainService
+      .getBlockchain(this.catalogoService.id)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data: any) => {
+        this.blockchain = data;
+        console.log(data)
+      });
   }
 }
