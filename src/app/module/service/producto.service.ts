@@ -57,9 +57,11 @@ export class ProductoService {
   }
 
   getProducto(id: string) {
+    console.log(id);
     return this.http
       .get<ProductoResponse>(this.endpointGetById + '/' + id)
       .pipe(retry(3), catchError(this.handleError));
+      
   }
 
   eliminarProducto(id: string){

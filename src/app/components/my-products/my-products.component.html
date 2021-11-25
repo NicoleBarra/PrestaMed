@@ -31,16 +31,16 @@
               </svg>
             </button>
          <h1>{{producto.name}}</h1>
-         <p>Marca: </p> <p> {{producto.brand}}</p>
+         <p style="margin-right: 5px;">Marca: </p> <p> {{producto.image}}</p>
          <br>
-         <p>Descripción: </p>
+         <p style="margin-right: 5px;">Descripción: </p>
          <p> {{producto.description}}</p>
          <br>
-         <p>Modalidad: </p> <p> {{producto.rentSell}}</p>
+         <p style="margin-right: 5px;">Modalidad: </p> <p> {{producto.rentSell}}</p>
          <br>
-         <p>Categoría: </p> <p>{{convertirCategoria(producto.category)}}</p>
+         <p style="margin-right: 5px;">Categoría: </p> <p>{{convertirCategoria(producto.category)}}</p>
          <br>
-         <p>Estatus: </p> <p>En posesión</p>
+         <p style="margin-right: 5px;">Estatus: </p> <p>En posesión</p>
 
          <a [routerLink]="['/mis-productos-editar']" routerLinkActive="router-link-active" >
          <button class="btn btn-edit" (click)="editar(producto._id)">Editar <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">

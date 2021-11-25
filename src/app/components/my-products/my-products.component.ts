@@ -12,7 +12,7 @@ import { ProductoService } from 'src/app/module/service/producto.service';
 export class MyProductsComponent implements OnInit {
 
   productos:any;
-
+  
   destroy$: Subject<boolean> = new Subject<boolean>();
 
   constructor(private productoService: ProductoService, private catalogueService: CatalogoService) { }
@@ -27,6 +27,7 @@ export class MyProductsComponent implements OnInit {
       .pipe(takeUntil(this.destroy$))
       .subscribe((data: any[]) => {
         this.productos = data;
+        console.log(data);
       });
   }
 
