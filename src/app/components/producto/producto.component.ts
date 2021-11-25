@@ -87,8 +87,8 @@ export class ProductoComponent implements OnInit {
       category: this.producto.category,
       fechaInicio: this.fechasModelo.value.fechaInicio,
       fechaFin: this.fechasModelo.value.fechaFin,
-      comentario: ''
-
+      comentario: '',
+      image: this.producto.image
     }
 
     this.solicitudService.insertarSolicitud(solicitud)

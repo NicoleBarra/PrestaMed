@@ -49,6 +49,7 @@ export class MyProductsAddComponent implements OnInit {
     this.productoService.insertarProducto(producto)
     this.modeloProducto.reset()
     this.router.navigate(['/mis-productos'])
+    this.ngOnInit()
     this.toastr.success("El producto ha sido agregado.")
   }
 

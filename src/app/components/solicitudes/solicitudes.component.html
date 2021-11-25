@@ -3,7 +3,7 @@
 </div>
 <section id="holder">
     <div class="container" *ngFor="let solicitud of solicitudes">
-        <img src="../../../assets/Imgs/tanque1.png" alt="Pancake">
+        <img src="{{solicitud.image}}" alt="Pancake">
         <div class="container__text">
             <h1>{{solicitud.name}}</h1>
             <p>Marca: </p> <p>{{solicitud.brand}}</p><br>

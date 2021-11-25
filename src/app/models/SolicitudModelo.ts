@@ -11,4 +11,5 @@ export interface SolicitudModelo {
   fechaInicio: string;
   fechaFin: string;
   comentario: string;
+  image: string;
 }
