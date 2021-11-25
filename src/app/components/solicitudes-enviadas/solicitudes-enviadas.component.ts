@@ -76,7 +76,7 @@ export class SolicitudesEnviadasComponent implements OnInit {
       idRemitente: this.solicitudes[index].idRemitente,
       fechaInicio: this.solicitudes[index].fechaInicio,
       fechaFin: this.solicitudes[index].fechaFin,
-      comentario: this.modeloSolicitudEdit.value.comentario,
+      comentario: this.comentarioModelo.value.comentario,
       image: this.solicitudes[index].image
     }
 
