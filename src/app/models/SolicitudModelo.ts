@@ -6,6 +6,9 @@ export interface SolicitudModelo {
 	category: string;
   rentSellSelection: string;
   status: string;
-  idOwnerProducto: string;
+  idDuenoProducto: string;
   idRemitente: string;
+  fechaInicio: string;
+  fechaFin: string;
+  comentario: string;
 }

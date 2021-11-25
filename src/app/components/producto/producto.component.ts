@@ -24,7 +24,8 @@ export class ProductoComponent implements OnInit {
 
   constructor(private catalogoService: CatalogoService,
     private blockchainService: BlockchainService,
-    private formbuild: FormBuilder) { }
+    private formbuild: FormBuilder,
+    private solicitudService: SolicitudService) { }
 
   ngOnInit(): void {
     this.getProductoId()
@@ -72,24 +73,22 @@ export class ProductoComponent implements OnInit {
 
   crearSolicitudEnviada(tipo:string){
     this.registrarSolicitud(tipo)
-    /*let solicitud: SolicitudModelo = {
+    let solicitud: SolicitudModelo = {
       idProducto: this.producto._id,
       rentSellSelection: tipo,
       status: 'enviada',
-      idOwnerProducto: this.producto.ownerUser,
+      idDuenoProducto: this.idOwnerProduct,
       idRemitente: this.obtenerId(),
       name: this.producto.name,
       brand: this.producto.brand,
       description: this.producto.description,
-      category: this.producto.category
+      category: this.producto.category,
+      fechaInicio: this.fechasModelo.value.fechaInicio,
+      fechaFin: this.fechasModelo.value.fechaFin,
+      comentario: ''
     }
-    var soliLista = new Array()
-    soliLista.push(solicitud)
-    let solicitudUsuario: SolicitudUsuario = {
-      idUsuario: this.obtenerId(),
-      solicitudes: soliLista
-    }
-    this.solicitudService.insertarSolicitud(solicitudUsuario)*/
+
+    this.solicitudService.insertarSolicitud(solicitud)
   }
 
   obtenerId(){

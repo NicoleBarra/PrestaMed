@@ -17,8 +17,8 @@ export class SolicitudService {
   endpointMostrarEnviadas = 'http://localhost:8085/api/solicitud/enviadas';
   endpointActualizarEstatus = 'http://localhost:8085/api/solicitud/actualizar';
 
-  insertarSolicitud(solicitudUsuario: SolicitudUsuario) {
-    this.http.post<SolicitudUsuario>(this.endpointAgregar, solicitudUsuario).subscribe({
+  insertarSolicitud(solicitudModelo: SolicitudModelo) {
+    this.http.post<SolicitudUsuario>(this.endpointAgregar, solicitudModelo).subscribe({
       next: (data) => {
         console.log('datos', data);
       },
