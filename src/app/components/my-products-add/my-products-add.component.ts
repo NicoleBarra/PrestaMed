@@ -29,6 +29,8 @@ export class MyProductsAddComponent implements OnInit {
   });
 
   agregarProducto(){
+    console.log("obtener id")
+    console.log(this.obtenerId)
     let producto: ProductoRequest = {
       name: this.modeloProducto.value.name,
       category: this.modeloProducto.value.category,
