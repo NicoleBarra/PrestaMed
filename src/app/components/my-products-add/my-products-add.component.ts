@@ -35,7 +35,6 @@ export class MyProductsAddComponent implements OnInit {
     console.log("obtener id")
     console.log(this.obtenerId)
     let producto: ProductoRequest = {
-      _id: this.modeloProducto.value.id,
       name: this.modeloProducto.value.name,
       category: this.modeloProducto.value.category,
       ownerUser: this.obtenerId(),
