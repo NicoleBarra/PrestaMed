@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validator, FormArray, Validators } from '@angular/forms';
 import { ProductoRequest } from 'src/app/models/ProductoRequest';
 import { ProductoService } from 'src/app/module/service/producto.service';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-my-products-add',
@@ -11,10 +12,12 @@ import { ProductoService } from 'src/app/module/service/producto.service';
 export class MyProductsAddComponent implements OnInit {
 
   constructor(private formbuild: FormBuilder,
-    private productoService: ProductoService) { }
+    private productoService: ProductoService, private router: Router) { }
 
   ngOnInit(): void {
   }
+
+  
 
   modeloProducto = this.formbuild.group({
     name: ['', Validators.required],
@@ -44,6 +47,7 @@ export class MyProductsAddComponent implements OnInit {
     }
     this.productoService.insertarProducto(producto)
     this.modeloProducto.reset()
+    this.router.navigate(['/mis-productos'])
   }
 
   rentOrSellOption(rentOption: boolean, sellOption: boolean){
