@@ -3,6 +3,7 @@ import { FormBuilder, Validator, FormArray, Validators } from '@angular/forms';
 import { ProductoRequest } from 'src/app/models/ProductoRequest';
 import { ProductoService } from 'src/app/module/service/producto.service';
 import { Router } from "@angular/router";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-my-products-add',
@@ -12,7 +13,7 @@ import { Router } from "@angular/router";
 export class MyProductsAddComponent implements OnInit {
 
   constructor(private formbuild: FormBuilder,
-    private productoService: ProductoService, private router: Router) { }
+    private productoService: ProductoService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -48,6 +49,7 @@ export class MyProductsAddComponent implements OnInit {
     this.productoService.insertarProducto(producto)
     this.modeloProducto.reset()
     this.router.navigate(['/mis-productos'])
+    this.toastr.success("El producto ha sido agregado")
   }
 
   rentOrSellOption(rentOption: boolean, sellOption: boolean){

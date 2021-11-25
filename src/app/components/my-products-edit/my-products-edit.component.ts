@@ -5,6 +5,7 @@ import { takeUntil } from 'rxjs/operators';
 import { ProductoResponse } from 'src/app/models/ProductoResponse';
 import { ProductoService } from 'src/app/module/service/producto.service';
 import { Router } from "@angular/router";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-my-products-edit',
@@ -28,7 +29,7 @@ export class MyProductsEditComponent implements OnInit {
     image: ''
   }
 
-  constructor(private productoService: ProductoService, private formbuild: FormBuilder, private router: Router) { }
+  constructor(private productoService: ProductoService, private formbuild: FormBuilder, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.productoService
@@ -83,6 +84,7 @@ export class MyProductsEditComponent implements OnInit {
     this.modeloProductoEdit.reset()
     this.resetProducto()
     this.router.navigate(['/mis-productos'])
+    this.toastr.success("El producto se ha editado.")
   }
 
   rentOrSellOption(rentOption: boolean, sellOption: boolean){
