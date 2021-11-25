@@ -5,13 +5,13 @@
     <div class="container" *ngFor="let solicitud of solicitudes">
         <img src="{{solicitud.image}}" alt="Pancake">
         <div class="container__text">
-            <h1>{{solicitud.name}}</h1>
-            <p>Marca: </p> <p>{{solicitud.brand}}</p><br>
-            <p>Descripción: </p> <p>{{solicitud.description}}</p><br>
-            <p>Modalidad: </p> <p>{{solicitud.rentSellSelection}}</p><br>
-            <p>Categoría: </p> <p>{{convertirCategoria(solicitud.category)}}</p><br>
-            <p>Estatus: </p> <p>{{solicitud.status}}</p><br>
-            <p>Comentario: </p> <p>{{solicitud.comment}}</p>
+            <h1 style="margin-right: 5px;">{{solicitud.name}}</h1>
+            <p style="margin-right: 5px;">Marca: </p> <p>{{solicitud.brand}}</p><br>
+            <p style="margin-right: 5px;">Descripción: </p> <p>{{solicitud.description}}</p><br>
+            <p style="margin-right: 5px;">Modalidad: </p> <p>{{solicitud.rentSellSelection}}</p><br>
+            <p style="margin-right: 5px;">Categoría: </p> <p>{{convertirCategoria(solicitud.category)}}</p><br>
+            <p style="margin-right: 5px;">Estatus: </p> <p>{{solicitud.status}}</p><br>
+            <p style="margin-right: 5px;">Comentario: </p> <p>{{solicitud.comentario}}</p>
         </div>
     </div>
 </section>
