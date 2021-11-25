@@ -24,7 +24,9 @@ export class SolicitudesEnviadasComponent implements OnInit {
   ngOnInit(): void {
     this.getSolicitudesEnviadas()
   }
-
+  modeloSolicitudEdit = this.formbuild.group({
+    comentario: ['', Validators.required]
+  });
   getSolicitudesEnviadas(){
     this.solicitudService
       .getSolicitudesPendientes(this.obtenerId())
@@ -61,7 +63,8 @@ export class SolicitudesEnviadasComponent implements OnInit {
 
   actualizarEstado(estado: string, index: number){
     this.registrarAcReSolicitud(estado, index)
-    /*let solicitud: SolicitudModelo = {
+    
+    let solicitud: SolicitudModelo = {
       idProducto: this.solicitudes[index].idProducto,
       name: this.solicitudes[index].name,
       brand: this.solicitudes[index].brand,
@@ -69,8 +72,12 @@ export class SolicitudesEnviadasComponent implements OnInit {
       category: this.solicitudes[index].category,
       rentSellSelection: this.solicitudes[index].rentSellSelection,
       status: estado,
-      idOwnerProducto: this.solicitudes[index].idOwnerProducto,
-      idRemitente: this.solicitudes[index].idRemitente
+      idDuenoProducto: this.solicitudes[index].idDuenoProducto,
+      idRemitente: this.solicitudes[index].idRemitente,
+      fechaInicio: this.solicitudes[index].fechaInicio,
+      fechaFin: this.solicitudes[index].fechaFin,
+      comentario: this.modeloSolicitudEdit.value.comentario,
+      image: this.solicitudes[index].image
     }
 
     this.solicitudService.actualizarEstatusSolicitud(solicitud).subscribe({
@@ -81,7 +88,8 @@ export class SolicitudesEnviadasComponent implements OnInit {
       error: (error) => {
         console.error(' error!', error);
       },
-    });*/
+    });
+
   }
 
   registrarAcReSolicitud(tipo:string, index:number){
