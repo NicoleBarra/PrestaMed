@@ -22,25 +22,23 @@ export class SolicitudesComponent implements OnInit {
     this.getAllSolicitudes()
   }
 
-  //Pendiente yo creo que voy a repetir la info
-  /*getProductoInfo(idProducto: string){
-    this.productoService
-      .getProducto(idProducto)
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((data: any) => {
-        this.producto = data;
-        console.log(this.producto)
-      });
-  }*/
-
-  getAllSolicitudes(){
+  /*getAllSolicitudes(){
     this.solicitudService
-      .getAllSolicitudes(this.obtenerId())
+      .get2AllSolicitudes(this.obtenerId())
       .pipe(takeUntil(this.destroy$))
       .subscribe((data: any) => {
         this.solicitudUsuario = data;
         this.solicitudes = this.solicitudUsuario.solicitudes
         console.log(this.solicitudUsuario.solicitudes)
+      });
+  }*/
+
+  getAllSolicitudes(){
+    this.solicitudService
+      .get2AllSolicitudes(this.obtenerId())
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data: any) => {
+        this.solicitudes = data;
       });
   }
 

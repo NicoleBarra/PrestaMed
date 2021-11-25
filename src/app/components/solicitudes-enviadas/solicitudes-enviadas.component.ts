@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { BlockModel } from 'src/app/models/BlockModel';
 import { SolicitudModelo } from 'src/app/models/SolicitudModelo';
+import { SolicitudModeloAgregar } from 'src/app/models/SolicitudModeloAgregar';
 import { BlockchainService } from 'src/app/module/service/blockchain.service';
 import { SolicitudService } from 'src/app/module/service/solicitud.service';
 
@@ -29,7 +30,7 @@ export class SolicitudesEnviadasComponent implements OnInit {
   });
   getSolicitudesEnviadas(){
     this.solicitudService
-      .getSolicitudesPendientes(this.obtenerId())
+      .get2SolicitudesPendientes(this.obtenerId())
       .pipe(takeUntil(this.destroy$))
       .subscribe((data: any) => {
         this.solicitudes = data;
@@ -77,13 +78,14 @@ export class SolicitudesEnviadasComponent implements OnInit {
       fechaInicio: this.solicitudes[index].fechaInicio,
       fechaFin: this.solicitudes[index].fechaFin,
       comentario: this.comentarioModelo.value.comentario,
-      image: this.solicitudes[index].image
+      image: this.solicitudes[index].image,
+      _id: this.solicitudes[index]._id
     }
-
-    this.solicitudService.actualizarEstatusSolicitud(solicitud).subscribe({
+    
+    this.solicitudService.actualizar2EstatusSolicitud(solicitud).subscribe({
       next: (data) => {
         console.log('datos', data);
-        this.solicitudes = data.solicitudes
+        //this.solicitudes = data.solicitudes
       },
       error: (error) => {
         console.error(' error!', error);

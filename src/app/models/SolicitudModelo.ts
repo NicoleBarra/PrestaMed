@@ -1,4 +1,5 @@
 export interface SolicitudModelo {
+  _id: string;
   idProducto: string;
   name: string;
 	brand: string;

@@ -20,8 +20,8 @@ export class SolicitudService {
 
   endpoint2Agregar = 'http://localhost:8089/api/solicitud/agregar';
   endpoint2MostrarTodas = 'http://localhost:8089/api/solicitud/showAll';
-  endpoint2MostrarEnviadas = 'http://localhost:8085/api/solicitud/enviadas';
-  endpoint2ActualizarEstatus = 'http://localhost:8085/api/solicitud/actualizar';
+  endpoint2MostrarEnviadas = 'http://localhost:8089/api/solicitud/enviadas';
+  endpoint2ActualizarEstatus = 'http://localhost:8089/api/solicitud/actualizar';
 
   insertarSolicitud(solicitudModelo: SolicitudModelo) {
     this.http.post<SolicitudUsuario>(this.endpointAgregar, solicitudModelo).subscribe({
@@ -62,6 +62,7 @@ export class SolicitudService {
   }
 
   get2AllSolicitudes(id: string){
+    console.log(id)
     return this.http
       .get<SolicitudModelo[]>(this.endpoint2MostrarTodas + '/' + id)
       .pipe(retry(3), catchError(this.handleError));

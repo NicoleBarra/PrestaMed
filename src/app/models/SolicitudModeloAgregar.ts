@@ -1,5 +1,4 @@
 export interface SolicitudModeloAgregar {
-  _id: string;
   idProducto: string;
   name: string;
 	brand: string;

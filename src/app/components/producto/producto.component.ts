@@ -10,6 +10,7 @@ import { BlockchainService } from 'src/app/module/service/blockchain.service';
 import { CatalogoService } from 'src/app/module/service/catalogo.service';
 import { SolicitudService } from 'src/app/module/service/solicitud.service';
 import { ToastrService } from 'ngx-toastr';
+import { SolicitudModeloAgregar } from 'src/app/models/SolicitudModeloAgregar';
 
 @Component({
   selector: 'app-producto',
@@ -75,7 +76,7 @@ export class ProductoComponent implements OnInit {
 
   crearSolicitudEnviada(tipo:string){
     this.registrarSolicitud(tipo)
-    let solicitud: SolicitudModelo = {
+    let solicitud: SolicitudModeloAgregar = {
       idProducto: this.producto._id,
       rentSellSelection: tipo,
       status: 'enviada',
@@ -91,7 +92,7 @@ export class ProductoComponent implements OnInit {
       image: this.producto.image
     }
 
-    this.solicitudService.insertarSolicitud(solicitud)
+    this.solicitudService.insertar2Solicitud(solicitud)
     this.toastr.success("Se ha enviado la solicitud")
   }
 
