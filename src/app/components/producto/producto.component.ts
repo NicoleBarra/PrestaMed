@@ -9,6 +9,7 @@ import { TransaccionRequest } from 'src/app/models/TransaccionRequest';
 import { BlockchainService } from 'src/app/module/service/blockchain.service';
 import { CatalogoService } from 'src/app/module/service/catalogo.service';
 import { SolicitudService } from 'src/app/module/service/solicitud.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-producto',
@@ -25,7 +26,8 @@ export class ProductoComponent implements OnInit {
   constructor(private catalogoService: CatalogoService,
     private blockchainService: BlockchainService,
     private formbuild: FormBuilder,
-    private solicitudService: SolicitudService) { }
+    private solicitudService: SolicitudService,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getProductoId()
@@ -86,9 +88,11 @@ export class ProductoComponent implements OnInit {
       fechaInicio: this.fechasModelo.value.fechaInicio,
       fechaFin: this.fechasModelo.value.fechaFin,
       comentario: ''
+
     }
 
     this.solicitudService.insertarSolicitud(solicitud)
+    this.toastr.success("Se ha enviado la solicitud")
   }
 
   obtenerId(){
