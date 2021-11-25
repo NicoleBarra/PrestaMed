@@ -5,6 +5,7 @@ import { takeUntil } from 'rxjs/operators';
 import { CatalogoService } from 'src/app/module/service/catalogo.service';
 import { FormBuilder, Validator, FormArray, Validators } from '@angular/forms';
 import { BasicProductInfo } from 'src/app/models/BasicProductInfo';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-categorias',
@@ -19,7 +20,8 @@ export class CategoriasComponent implements OnInit {
 
   constructor(private productoService: ProductoService,
     private catalogoService: CatalogoService,
-    private formbuild: FormBuilder) { }
+    private formbuild: FormBuilder,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getAllProductos()
@@ -61,6 +63,10 @@ export class CategoriasComponent implements OnInit {
       });
     } else if(this.opcionModel.value.rentSell == ""){
       console.log("Error")
+      
+      this.toastr.error('Debes de seleccionar una modalidad primero','Error en el filtro', {
+        timeOut: 3000,
+      });
     } else {
       this.catalogoService
       .getProductosFiltroRentSellOrderBy(this.opcionModel.value.rentSell, this.opcionModel.value.orderBy)
