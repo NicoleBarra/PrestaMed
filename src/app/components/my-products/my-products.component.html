@@ -22,7 +22,7 @@
     </div>
 
     <div class="container container-fluid" *ngFor="let producto of productos">
-        <img src="{{producto.image}}" alt="Product"
+        <img src='{{producto.image}}' alt="Product"
         />
         <div class="container__text container-fluid">
             <button class="btn btn-delete" (click)="eliminar(producto._id)">Eliminar

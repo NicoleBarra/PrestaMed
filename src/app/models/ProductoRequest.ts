@@ -1,4 +1,5 @@
 export interface ProductoRequest {
+  _id: string;
   name: string;
   category: string;
   ownerUser: string;
