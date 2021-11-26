@@ -7,6 +7,7 @@ import { SolicitudModelo } from 'src/app/models/SolicitudModelo';
 import { SolicitudModeloAgregar } from 'src/app/models/SolicitudModeloAgregar';
 import { BlockchainService } from 'src/app/module/service/blockchain.service';
 import { SolicitudService } from 'src/app/module/service/solicitud.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-solicitudes-enviadas',
@@ -20,7 +21,8 @@ export class SolicitudesEnviadasComponent implements OnInit {
 
   constructor(private solicitudService: SolicitudService,
     private blockService: BlockchainService,
-    private formbuild: FormBuilder) { }
+    private formbuild: FormBuilder,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getSolicitudesEnviadas()
@@ -85,6 +87,7 @@ export class SolicitudesEnviadasComponent implements OnInit {
     this.solicitudService.actualizar2EstatusSolicitud(solicitud).subscribe({
       next: (data) => {
         console.log('datos', data);
+        this.toastr.success("La solicitud ha sido contestada.")
         //this.solicitudes = data.solicitudes
       },
       error: (error) => {
